@@ -7,6 +7,7 @@ import { texts } from '../../texts'
 import '../Personal/Page.css'
 import Select from '../../components/Select'
 import './Skills.css'
+import SkillBox from '../../components/SkillBox'
 const Skills = () => {
   return (
     <div className='page'>
@@ -18,12 +19,15 @@ const Skills = () => {
           style={{
             width: '320px',
             display: 'flex',
-            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
+            flexDirection: 'column',
             margin: '0 auto',
           }}
         >
           <button className='skill__button'>Add Programming Language</button>
+          <SkillBox />
         </div>
+
         <Pagination />
       </div>
       <div className='page__right'>

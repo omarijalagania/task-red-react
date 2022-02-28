@@ -1,0 +1,24 @@
+.skillBox {
+  width: 304px;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  padding: 0 8px;
+}
+
+.skillBox__language,
+.skillBox__years {
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.skillBox__delete {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}

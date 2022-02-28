@@ -2,8 +2,10 @@
   background-color: #fe3b1f;
   color: white;
   font-family: 'Montserrat';
-  width: 180px;
-  height: 32px;
+  width: 170px;
+  height: 26px;
+  font-size: 12px;
   border: none;
   cursor: pointer;
+  margin-bottom: 50px;
 }
