@@ -1,0 +1,50 @@
+.home {
+  height: 100vh;
+  background-color: black;
+}
+
+.home__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%);
+}
+
+.home__headText {
+  color: #fe3b1f;
+  font-family: 'Rowdies';
+  font-weight: 400;
+  font-size: 80px;
+  border: 2px solid #fe3b1f;
+  padding: 20px;
+}
+
+.home__button {
+  background-color: #fe3b1f;
+  color: white;
+  font-family: 'Montserrat';
+  font-size: 20px;
+  border: 2px solid #fe3b1f;
+  padding: 10px 50px;
+  margin-top: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.home__applications {
+  margin-top: 30px;
+  color: white;
+  text-decoration: underline;
+}
+
+.home__rocket {
+  position: relative;
+  right: 30px;
+  top: -30px;
+  width: 470px;
+  height: auto;
+}
