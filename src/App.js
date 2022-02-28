@@ -1,6 +1,6 @@
 import Home from './pages/home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Personal from './pages/personal'
+import Page from './Layout/Page'
 
 //import env from "react-dotenv";
 
@@ -9,7 +9,7 @@ function App() {
     <Router>
       <Routes>
         <Route index path='/' element={<Home />} />
-        <Route path='/personal' element={<Personal />} />
+        <Route path='/personal' element={<Page />} />
       </Routes>
     </Router>
   )

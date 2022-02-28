@@ -1,26 +1,25 @@
-.personal {
+.page {
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
 
-.personal__left,
-.personal__right {
+.page__left,
+.page__right {
   width: 50%;
 }
 
-.personal__left {
+.page__left {
   height: 100vh;
   text-align: center;
 }
 
-.personal__right {
+.page__right {
   height: 100vh;
-  flex: 1;
   background-color: black;
 }
 
-.personal__heading {
+.page__heading {
   color: #fe3b1f;
   font-family: 'Rowdies';
   font-weight: normal;
@@ -30,7 +29,7 @@
   text-align: center;
 }
 
-.personal__text {
+.page__text {
   color: white;
   width: 450px;
   margin: 0 auto;
