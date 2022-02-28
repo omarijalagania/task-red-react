@@ -1,6 +1,7 @@
 import Home from './pages/home'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Page from './Layout/Page'
+import Page from './pages/Personal'
+import Skills from './pages/Skills'
 
 //import env from "react-dotenv";
 
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route index path='/' element={<Home />} />
         <Route path='/personal' element={<Page />} />
+        <Route path='/skills' element={<Skills />} />
       </Routes>
     </Router>
   )

@@ -1,0 +1,9 @@
+.skill__button {
+  background-color: #fe3b1f;
+  color: white;
+  font-family: 'Montserrat';
+  width: 180px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+}
