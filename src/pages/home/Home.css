@@ -1,17 +1,14 @@
 .home {
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
 }
 
 .home__container {
+  padding-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  position: absolute;
-  left: 50%;
-  top: 10%;
-  transform: translate(-50%);
 }
 
 .home__headText {
@@ -44,7 +41,7 @@
 .home__rocket {
   position: relative;
   right: 30px;
-  top: -30px;
+  top: -50px;
   width: 470px;
   height: auto;
 }
