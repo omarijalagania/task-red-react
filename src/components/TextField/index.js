@@ -4,13 +4,6 @@ const TextField = (props) => {
   return (
     <>
       <div className='textField'>
-        <label
-          className='textField__label'
-          required
-          htmlFor={props.label.toLowerCase()}
-        >
-          {props.label}
-        </label>
         <div>
           <input
             style={{ width: '300px' }}
@@ -19,7 +12,6 @@ const TextField = (props) => {
             type={props.type}
             placeholder={props.placeholder}
             required
-            id={props.label.toLowerCase()}
           />
         </div>
       </div>

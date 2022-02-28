@@ -1,0 +1,39 @@
+.personal {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.personal__left,
+.personal__right {
+  width: 50%;
+}
+
+.personal__left {
+  height: 100vh;
+  text-align: center;
+}
+
+.personal__right {
+  height: 100vh;
+  flex: 1;
+  background-color: black;
+}
+
+.personal__heading {
+  color: #fe3b1f;
+  font-family: 'Rowdies';
+  font-weight: normal;
+  line-height: 79px;
+  font-size: 60px;
+  padding: 20px;
+  text-align: center;
+}
+
+.personal__text {
+  color: white;
+  width: 450px;
+  margin: 0 auto;
+  font-size: 21px;
+  line-height: 200%;
+}

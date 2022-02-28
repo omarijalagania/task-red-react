@@ -4,14 +4,6 @@
   padding: 10px 0;
 }
 
-.textField__label {
-  font-weight: 'bold';
-}
-
-.textField__label:after {
-  content: '*';
-}
-
 .textField__input {
   border: 1px solid black;
   padding: 10px;
@@ -20,5 +12,7 @@
   margin-top: 10px;
 }
 .textField__input::placeholder {
-  color: black;
+  color: #454545;
+  font-style: italic;
+  font-size: 12px;
 }
