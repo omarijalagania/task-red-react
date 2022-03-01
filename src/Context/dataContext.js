@@ -8,7 +8,7 @@ export const DataProvider = ({ children }) => {
     lastName: '',
     email: '',
     phone: '',
-    skills: [{}],
+    skills: [],
     workPreferences: '',
     hadCovid: false,
     hadCovidAt: '2022-01-01',

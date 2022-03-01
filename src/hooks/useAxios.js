@@ -6,7 +6,7 @@ axios.defaults.baseURL = 'https://bootcamp-2022.devtest.ge/api'
 export const useAxios = (axiosParams) => {
   const [response, setResponse] = useState(undefined)
   const [error, setError] = useState('')
-  const [loading, setloading] = useState(true)
+  const [loading, setLoading] = useState(true)
 
   const fetchData = async (params) => {
     try {
