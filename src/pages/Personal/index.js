@@ -4,12 +4,12 @@ import HeadText from '../../components/HeadText'
 import { texts } from '../../texts'
 import TextField from '../../components/TextField'
 import { DataContext } from '../../Context/dataContext'
+import { regEmail, regPhone } from '../../utils/regex'
 import './Page.css'
 
 const Personal = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
 
-  console.log(personalData)
   return (
     <div className='page'>
       <div className='page__left'>
@@ -59,6 +59,11 @@ const Personal = () => {
           type='email'
           width='300px'
         />
+        {!regEmail.test(personalData?.email) ? (
+          <div style={{ color: 'red', fontSize: '10px' }}>მაილი არასწორია</div>
+        ) : (
+          ''
+        )}
         <TextField
           placeholder='+995_ _ _ _'
           onChange={(e) =>
@@ -67,6 +72,13 @@ const Personal = () => {
           type='mobile'
           width='300px'
         />
+        {!regPhone.test(personalData?.phone) ? (
+          <div style={{ color: 'red', fontSize: '10px' }}>
+            მობილური არასწორია
+          </div>
+        ) : (
+          ''
+        )}
       </div>
       <div className='page__right'>
         <HeadText

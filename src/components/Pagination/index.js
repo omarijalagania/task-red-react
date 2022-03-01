@@ -5,19 +5,12 @@ import Icon from '../Icon/'
 import './Pagination.css'
 const Pagination = () => {
   const location = useLocation()
-  const navigate = useNavigate()
+  let navigate = useNavigate()
 
-  const [pageData, setPageData] = useContext(DataContext)
+  const [personalData, setPersonalData] = useContext(DataContext)
 
   const navigateHandler = (page) => {
-    if (
-      pageData.name > 2 &&
-      pageData.lastName > 2 &&
-      pageData.email !== '' &&
-      pageData.phone !== ''
-    ) {
-      navigate(`${page}`)
-    }
+    navigate(page)
   }
 
   return (
