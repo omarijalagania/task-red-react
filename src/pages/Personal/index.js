@@ -18,6 +18,7 @@ const Personal = () => {
           className='page__heading'
         />
         <TextField
+          required={true}
           placeholder='First Name'
           value={personalData.name}
           onChange={(e) =>
@@ -36,6 +37,7 @@ const Personal = () => {
           )}
         </span>
         <TextField
+          required={true}
           placeholder='Last Name'
           value={personalData.lastName}
           onChange={(e) =>
@@ -52,6 +54,7 @@ const Personal = () => {
           ''
         )}
         <TextField
+          required={true}
           placeholder='Email'
           onChange={(e) =>
             setPersonalData({ ...personalData, email: e.target.value })
@@ -65,6 +68,7 @@ const Personal = () => {
           ''
         )}
         <TextField
+          required={false}
           placeholder='+995_ _ _ _'
           onChange={(e) =>
             setPersonalData({ ...personalData, phone: e.target.value })

@@ -27,9 +27,13 @@ const Skills = () => {
     }
   }, [response])
 
+  //not to add duplicates to skills array
+  const duplicate = personalData?.skills.some(
+    (item) => item.skill === chosenSkill,
+  )
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
-    if (chosenSkill !== '' && expirienceYears !== '') {
+    if (chosenSkill !== '' && !duplicate && expirienceYears !== '') {
       setPersonalData({
         ...personalData,
         skills: [

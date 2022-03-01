@@ -1,6 +1,7 @@
 import React, { useContext } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { DataContext } from '../../Context/dataContext'
+import { regEmail, regPhone } from '../../utils/regex'
 import Icon from '../Icon/'
 import './Pagination.css'
 const Pagination = () => {
@@ -19,17 +20,28 @@ const Pagination = () => {
       <span
         onClick={() => navigateHandler('/personal')}
         className={`pagination__circle ${
-          location.pathname === '/personal' ? 'active' : ''
+          location.pathname === '/personal' || personalData.name !== ''
+            ? 'active'
+            : ''
         } `}
       />
       <span
-        onClick={() => navigateHandler('/skills')}
+        onClick={() =>
+          personalData.name.length > 2 &&
+          personalData.lastName.length > 2 &&
+          regEmail.test(personalData.email) &&
+          regPhone.test(personalData.phone)
+            ? navigate('/skills')
+            : ''
+        }
         className={`pagination__circle ${
-          location.pathname === '/skills' ? 'active' : ''
+          location.pathname === '/skills' || personalData?.skills.length !== 0
+            ? 'active'
+            : ''
         } `}
       />
       <span
-        onClick={() => navigateHandler('/covid')}
+        onClick={() => personalData?.skills.length !== 0 && navigate('/covid')}
         className={`pagination__circle ${
           location.pathname === '/covid' ? 'active' : ''
         } `}

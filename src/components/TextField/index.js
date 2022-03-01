@@ -11,7 +11,7 @@ const TextField = (props) => {
         value={props.value}
         name={props.name}
         placeholder={props.placeholder}
-        required
+        required={props.required}
         multiple={props.size}
       />
     </div>
