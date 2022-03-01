@@ -31,7 +31,7 @@ const About = () => {
                 value='test'
                 name='cheks'
               />
-              <span>Yes</span>
+              <div>Yes</div>
             </div>
           </div>
           <div className='covid__box'>
@@ -49,7 +49,7 @@ const About = () => {
                 value='test'
                 name='cheks'
               />
-              <span>No</span>
+              <div>No</div>
             </div>
           </div>
         </div>

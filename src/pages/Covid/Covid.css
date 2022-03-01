@@ -16,6 +16,10 @@
   width: 18px;
 }
 
+.covid__text {
+  margin-bottom: 20px;
+}
+
 .covid__box {
   display: 'flex';
   align-items: 'flex-start';

@@ -13,7 +13,7 @@ import uuid from 'react-uuid'
 const Skills = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
-  const [chosenSkill, setChosenSkill] = useState('')
+  const [chosenSkill, setChosenSkill] = useState('HTML')
   const [expirienceYears, setExpirienceYears] = useState('')
 
   //get skills from api with custom hook

@@ -29,7 +29,7 @@ const Covid = () => {
                   value='test'
                   name='cheks'
                 />
-                <span>From Sairme Office</span>
+                <div>From Sairme Office</div>
               </div>
             </div>
             <div className='covid__box'>
@@ -47,7 +47,7 @@ const Covid = () => {
                   value='test'
                   name='cheks'
                 />
-                <span>From Home</span>
+                <div>From Home</div>
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ const Covid = () => {
                   value='test'
                   name='cheks'
                 />
-                <span>Yes</span>
+                <div>Yes</div>
               </div>
             </div>
             <div className='covid__box'>
@@ -87,7 +87,7 @@ const Covid = () => {
                   value='test'
                   name='cheks'
                 />
-                <span>No</span>
+                <div>No</div>
               </div>
             </div>
           </div>
