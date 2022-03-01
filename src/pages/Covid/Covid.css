@@ -1,0 +1,29 @@
+.covid {
+  display: flex;
+  justify-content: center;
+  align-items: 'flex-start';
+  flex-direction: column;
+  width: 500px;
+  align-items: flex-start;
+  margin: 0 auto;
+  margin-bottom: 30px;
+}
+
+.covid__textField {
+  padding: 0;
+  margin: 0;
+  width: 18px;
+}
+
+.covid__box {
+  display: 'flex';
+  align-items: 'flex-start';
+  justify-content: 'flex-start';
+  flex-direction: 'column';
+}
+
+.covid__box__item {
+  display: 'flex';
+  align-items: 'center';
+  justify-content: 'flex-start';
+}

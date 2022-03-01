@@ -13,10 +13,10 @@ const Personal = () => {
           text='Hey, Rocketeer, what are your coordinates?'
           className='page__heading'
         />
-        <TextField placeholder='First Name' type='text' />
-        <TextField placeholder='Last Name' type='text' />
-        <TextField placeholder='Email' type='email' />
-        <TextField placeholder='+995_ _ _ _' type='mobile' />
+        <TextField placeholder='First Name' type='text' width='300px' />
+        <TextField placeholder='Last Name' type='text' width='300px' />
+        <TextField placeholder='Email' type='email' width='300px' />
+        <TextField placeholder='+995_ _ _ _' type='mobile' width='300px' />
       </div>
       <div className='page__right'>
         <HeadText

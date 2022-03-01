@@ -13,7 +13,12 @@ const Skills = () => {
       <div className='page__left'>
         <HeadText text='Tell us about your skills' className='page__heading' />
         <Select />
-        <TextField placeholder='Experience Duration in Years' type='number' />
+        <TextField
+          className='textField'
+          placeholder='Experience Duration in Years'
+          type='number'
+          width='297px'
+        />
         <div
           style={{
             width: '320px',

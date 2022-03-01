@@ -1,0 +1,19 @@
+.datePicker {
+  position: relative;
+}
+
+.datePicker input {
+  padding: 10px;
+}
+
+.datePicker__calendar {
+  width: 300px;
+  padding: 10px 0;
+}
+
+.datePicker__image {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translate(0, -50%);
+}

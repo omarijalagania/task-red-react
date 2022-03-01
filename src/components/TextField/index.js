@@ -6,12 +6,15 @@ const TextField = (props) => {
       <div className='textField'>
         <div>
           <input
-            style={{ width: '300px' }}
+            style={{ width: props.width }}
             onChange={(e) => props.onChange(e.target.value)}
-            className='textField__input'
+            className={props.className}
             type={props.type}
+            value={props.value}
+            name={props.name}
             placeholder={props.placeholder}
             required
+            multiple={props.size}
           />
         </div>
       </div>

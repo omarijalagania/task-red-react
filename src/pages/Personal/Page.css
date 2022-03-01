@@ -29,6 +29,10 @@
   text-align: center;
 }
 
+h1 {
+  margin: 0;
+}
+
 .page__text {
   color: white;
   width: 450px;
