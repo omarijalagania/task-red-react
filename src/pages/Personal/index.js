@@ -1,11 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Text from '../../components/Text'
 import HeadText from '../../components/HeadText'
 import { texts } from '../../texts'
 import TextField from '../../components/TextField'
+import { DataContext } from '../../Context/dataContext'
 import './Page.css'
 
 const Personal = () => {
+  const [personalData, setPersonalData] = useContext(DataContext)
+
+  console.log(personalData)
   return (
     <div className='page'>
       <div className='page__left'>
@@ -13,10 +17,40 @@ const Personal = () => {
           text='Hey, Rocketeer, what are your coordinates?'
           className='page__heading'
         />
-        <TextField placeholder='First Name' type='text' width='300px' />
-        <TextField placeholder='Last Name' type='text' width='300px' />
-        <TextField placeholder='Email' type='email' width='300px' />
-        <TextField placeholder='+995_ _ _ _' type='mobile' width='300px' />
+        <TextField
+          placeholder='First Name'
+          value={personalData.name}
+          onChange={(e) =>
+            setPersonalData({ ...personalData, name: e.target.value })
+          }
+          type='text'
+          width='300px'
+        />
+        <TextField
+          placeholder='Last Name'
+          value={personalData.lastName}
+          onChange={(e) =>
+            setPersonalData({ ...personalData, lastName: e.target.value })
+          }
+          type='text'
+          width='300px'
+        />
+        <TextField
+          placeholder='Email'
+          onChange={(e) =>
+            setPersonalData({ ...personalData, email: e.target.value })
+          }
+          type='email'
+          width='300px'
+        />
+        <TextField
+          placeholder='+995_ _ _ _'
+          onChange={(e) =>
+            setPersonalData({ ...personalData, phone: e.target.value })
+          }
+          type='mobile'
+          width='300px'
+        />
       </div>
       <div className='page__right'>
         <HeadText

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-axios.defaults.baseURL = 'url here'
+axios.defaults.baseURL = 'https://bootcamp-2022.devtest.ge/api'
 
 export const useAxios = (axiosParams) => {
   const [response, setResponse] = useState(undefined)

@@ -7,7 +7,7 @@ const TextField = (props) => {
         <div>
           <input
             style={{ width: props.width }}
-            onChange={(e) => props.onChange(e.target.value)}
+            onChange={props.onChange}
             className={props.className}
             type={props.type}
             value={props.value}
