@@ -1,19 +1,23 @@
 import Home from './pages/home'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-router-dom'
 import Page from './pages/Personal'
 import Skills from './pages/Skills'
+import Pagination from './components/Pagination'
 
 //import env from "react-dotenv";
 
 function App() {
+  const location = useLocation()
+
   return (
-    <Router>
+    <>
       <Routes>
         <Route index path='/' element={<Home />} />
         <Route path='/personal' element={<Page />} />
         <Route path='/skills' element={<Skills />} />
       </Routes>
-    </Router>
+      {location.pathname !== '/' ? <Pagination /> : <></>}
+    </>
   )
 }
 

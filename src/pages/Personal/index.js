@@ -2,7 +2,6 @@ import React from 'react'
 import Text from '../../components/Text'
 import HeadText from '../../components/HeadText'
 import { texts } from '../../texts'
-import Pagination from '../../components/Pagination'
 import TextField from '../../components/TextField'
 import './Page.css'
 
@@ -18,7 +17,6 @@ const Personal = () => {
         <TextField placeholder='Last Name' type='text' />
         <TextField placeholder='Email' type='email' />
         <TextField placeholder='+995_ _ _ _' type='mobile' />
-        <Pagination />
       </div>
       <div className='page__right'>
         <HeadText

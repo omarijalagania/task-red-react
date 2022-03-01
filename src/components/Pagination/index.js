@@ -5,10 +5,10 @@ const Pagination = () => {
   return (
     <div className='pagination'>
       <Icon name='right' />
-      <Icon name='active' />
-      <Icon name='inactive' />
-      <Icon name='inactive' />
-      <Icon name='inactive' />
+      <span className='pagination__circle active' />
+      <span className='pagination__circle' />
+      <span className='pagination__circle' />
+      <span className='pagination__circle' />
       <Icon name='left' />
     </div>
   )

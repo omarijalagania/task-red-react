@@ -1,5 +1,4 @@
 import React from 'react'
-import Pagination from '../../components/Pagination'
 import TextField from '../../components/TextField'
 import HeadText from '../../components/HeadText'
 import Text from '../../components/Text'
@@ -27,8 +26,6 @@ const Skills = () => {
           <button className='skill__button'>Add Programming Language</button>
           <SkillBox />
         </div>
-
-        <Pagination />
       </div>
       <div className='page__right'>
         <HeadText text='A bit about our battles' className='page__heading' />

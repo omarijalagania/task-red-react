@@ -1,6 +1,21 @@
 .pagination {
+  position: absolute;
+  bottom: 10%;
+  right: 68%;
   display: flex;
   justify-content: space-between;
   width: 220px;
-  margin: 170px auto;
+}
+
+.pagination__circle {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #fe3b1f;
+  cursor: pointer;
+  opacity: 0.3;
+}
+
+.active {
+  opacity: 1;
 }

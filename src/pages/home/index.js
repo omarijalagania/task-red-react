@@ -15,7 +15,9 @@ function Home() {
     >
       <div className='home__container'>
         <HeadText text='Welcome Rocketeer!' className='home__headText' />
-        <Button title='Start Questionnaire' className='home__button' />
+        <Link to='/personal'>
+          <Button title='Start Questionnaire' className='home__button' />
+        </Link>
         <Link to='/'>
           <h3 className='home__applications'>Submited Applications</h3>
         </Link>
