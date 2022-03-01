@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 import env from 'react-dotenv'
-axios.defaults.baseURL = env.REACT_APP_API_URL
+axios.defaults.baseURL = env.REACT_APP_BASE_URL
 
 export const useAxios = (axiosParams) => {
   const [response, setResponse] = useState(undefined)
