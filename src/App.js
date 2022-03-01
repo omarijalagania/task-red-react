@@ -1,5 +1,5 @@
 import Home from './pages/home'
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation, useMatch } from 'react-router-dom'
 import Page from './pages/Personal'
 import Skills from './pages/Skills'
 import Pagination from './components/Pagination'
@@ -22,7 +22,7 @@ function App() {
         <Route path='/covid' element={<Covid />} />
         <Route path='/about' element={<About />} />
         <Route path='/submit' element={<SubmitPage />} />
-        <Route path='*' element={<NotFound />} />
+        <Route path='/*' element={<NotFound />} />
       </Routes>
       {location.pathname !== '/' && location.pathname !== '/submit' ? (
         <Pagination />

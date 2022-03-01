@@ -1,10 +1,11 @@
 .pagination {
   position: absolute;
   bottom: 10%;
-  right: 68%;
+  left: 25%;
   display: flex;
   justify-content: space-between;
   width: 220px;
+  transform: translate(-50%);
 }
 
 .pagination__circle {
