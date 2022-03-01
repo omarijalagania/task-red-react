@@ -26,6 +26,15 @@ const Personal = () => {
           type='text'
           width='300px'
         />
+        <span>
+          {personalData?.name.length < 2 ? (
+            <div style={{ color: 'red', fontSize: '10px' }}>
+              სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები
+            </div>
+          ) : (
+            ''
+          )}
+        </span>
         <TextField
           placeholder='Last Name'
           value={personalData.lastName}
@@ -35,6 +44,13 @@ const Personal = () => {
           type='text'
           width='300px'
         />
+        {personalData?.lastName.length < 2 ? (
+          <div style={{ color: 'red', fontSize: '10px' }}>
+            სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები
+          </div>
+        ) : (
+          ''
+        )}
         <TextField
           placeholder='Email'
           onChange={(e) =>

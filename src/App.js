@@ -9,8 +9,6 @@ import SubmitPage from './pages/SubmitPage'
 import NotFound from './pages/NotFound'
 import SubmitedPage from './pages/SubmitedPage'
 
-//import env from "react-dotenv";
-
 function App() {
   const location = useLocation()
 

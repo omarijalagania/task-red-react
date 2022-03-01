@@ -1,9 +1,10 @@
 import React, { createContext, useState } from 'react'
-
+import env from 'react-dotenv'
 export const DataContext = createContext()
 
 export const DataProvider = ({ children }) => {
   const [personalData, setPersonalData] = useState({
+    token: env.REAC_APP_TOKEN,
     name: '',
     lastName: '',
     email: '',
