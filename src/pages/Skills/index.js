@@ -10,6 +10,7 @@ import SkillBox from '../../components/SkillBox'
 import { useAxios } from '../../hooks/useAxios'
 import { DataContext } from '../../Context/dataContext'
 import uuid from 'react-uuid'
+import Errors from '../../components/Errors'
 const Skills = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
@@ -85,11 +86,7 @@ const Skills = () => {
             Add Programming Language
           </button>
           {personalData?.skills.length === 0 ? (
-            <div
-              style={{ color: 'red', fontSize: '10px', marginBottom: '20px' }}
-            >
-              დაამატეთ მინიმუმ ერთი სკილი
-            </div>
+            <Errors message='დაამატეთ მინიმუმ 1 სკილი' margin='20px' />
           ) : (
             ''
           )}

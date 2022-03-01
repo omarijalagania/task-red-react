@@ -6,6 +6,7 @@ import TextField from '../../components/TextField'
 import { DataContext } from '../../Context/dataContext'
 import { regEmail, regPhone } from '../../utils/regex'
 import './Page.css'
+import Errors from '../../components/Errors'
 
 const Personal = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
@@ -17,6 +18,13 @@ const Personal = () => {
           text='Hey, Rocketeer, what are your coordinates?'
           className='page__heading'
         />
+
+        {personalData?.name.length < 2 ? (
+          <Errors message='სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები' />
+        ) : (
+          ''
+        )}
+
         <TextField
           required={true}
           placeholder='First Name'
@@ -27,15 +35,12 @@ const Personal = () => {
           type='text'
           width='300px'
         />
-        <span>
-          {personalData?.name.length < 2 ? (
-            <div style={{ color: 'red', fontSize: '10px' }}>
-              სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები
-            </div>
-          ) : (
-            ''
-          )}
-        </span>
+
+        {personalData?.lastName.length < 2 ? (
+          <Errors message='სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები' />
+        ) : (
+          ''
+        )}
         <TextField
           required={true}
           placeholder='Last Name'
@@ -46,10 +51,9 @@ const Personal = () => {
           type='text'
           width='300px'
         />
-        {personalData?.lastName.length < 2 ? (
-          <div style={{ color: 'red', fontSize: '10px' }}>
-            სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები
-          </div>
+
+        {!regEmail.test(personalData?.email) ? (
+          <Errors message='მაილი არასწორია' />
         ) : (
           ''
         )}
@@ -62,8 +66,9 @@ const Personal = () => {
           type='email'
           width='300px'
         />
-        {!regEmail.test(personalData?.email) ? (
-          <div style={{ color: 'red', fontSize: '10px' }}>მაილი არასწორია</div>
+
+        {!regPhone.test(personalData?.phone) ? (
+          <Errors message='მობილური ნომერი არასწორია' />
         ) : (
           ''
         )}
@@ -76,20 +81,9 @@ const Personal = () => {
           type='mobile'
           width='300px'
         />
-        {!regPhone.test(personalData?.phone) ? (
-          <div style={{ color: 'red', fontSize: '10px' }}>
-            მობილური არასწორია
-          </div>
-        ) : (
-          ''
-        )}
       </div>
       <div className='page__right'>
-        <HeadText
-          text='Redberry Origins
-          '
-          className='page__heading'
-        />
+        <HeadText text='Redberry Origins' className='page__heading' />
         <Text className='page__text' text={texts.personal} />
       </div>
     </div>
