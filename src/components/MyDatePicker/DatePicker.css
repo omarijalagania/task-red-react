@@ -8,6 +8,7 @@
 
 .datePicker__calendar {
   width: 300px;
+  max-width: 100%;
   padding: 10px 0;
 }
 

@@ -1,6 +1,7 @@
 .skillBox {
   width: 304px;
   height: 35px;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;

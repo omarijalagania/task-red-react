@@ -70,6 +70,7 @@ const Skills = () => {
         <div
           style={{
             width: '320px',
+            maxWidth: '100%',
             display: 'flex',
             alignItems: 'flex-end',
             flexDirection: 'column',
