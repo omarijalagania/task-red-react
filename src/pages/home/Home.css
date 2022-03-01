@@ -1,6 +1,9 @@
 .home {
   min-height: 100vh;
   background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .home__container {
@@ -44,4 +47,5 @@
   top: -50px;
   width: 470px;
   height: auto;
+  max-width: 100%;
 }

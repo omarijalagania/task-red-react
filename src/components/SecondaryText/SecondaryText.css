@@ -1,0 +1,10 @@
+.secondaryText {
+  font-family: Montserrat;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration-line: underline;
+  color: #fe3b1f;
+  margin-bottom: 20px;
+}
