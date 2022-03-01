@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import TextField from '../../components/TextField'
 import HeadText from '../../components/HeadText'
 import Text from '../../components/Text'
@@ -8,8 +8,13 @@ import Select from '../../components/Select'
 import './Skills.css'
 import SkillBox from '../../components/SkillBox'
 import { useAxios } from '../../hooks/useAxios'
+import { DataContext } from '../../Context/dataContext'
+import uuid from 'react-uuid'
 const Skills = () => {
+  const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
+  const [chosenSkill, setChosenSkill] = useState('')
+  const [expirienceYears, setExpirienceYears] = useState('')
 
   //get skills from api with custom hook
   const { response } = useAxios({
@@ -22,12 +27,41 @@ const Skills = () => {
     }
   }, [response])
 
+  //add skill to personalData.skills
+  const addProgrammingLangHandler = (e) => {
+    if (chosenSkill !== '' && expirienceYears !== '') {
+      setPersonalData({
+        ...personalData,
+        skills: [
+          ...personalData.skills,
+          {
+            id: uuid(),
+            skill: chosenSkill,
+            expirienceYears: expirienceYears,
+          },
+        ],
+      })
+      setChosenSkill('')
+      setExpirienceYears('')
+    }
+  }
+
+  //remove skill from personalData.skills
+
+  const removeSkillHandler = (id) => {
+    setPersonalData({
+      ...personalData,
+      skills: personalData.skills.filter((skill) => skill.id !== id),
+    })
+  }
+
   return (
     <div className='page'>
       <div className='page__left'>
         <HeadText text='Tell us about your skills' className='page__heading' />
-        <Select data={data} />
+        <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
         <TextField
+          onChange={(e) => setExpirienceYears(e.target.value)}
           className='textField'
           placeholder='Experience Duration in Years'
           type='number'
@@ -42,8 +76,20 @@ const Skills = () => {
             margin: '0 auto',
           }}
         >
-          <button className='skill__button'>Add Programming Language</button>
-          <SkillBox />
+          <button onClick={addProgrammingLangHandler} className='skill__button'>
+            Add Programming Language
+          </button>
+          {personalData.skills.length !== 0 ? (
+            personalData.skills.map((skill) => (
+              <SkillBox
+                onClick={removeSkillHandler.bind(null, skill.id)}
+                skill={skill}
+                key={skill.id}
+              />
+            ))
+          ) : (
+            <p>No Skills yet :(</p>
+          )}
         </div>
       </div>
       <div className='page__right'>
