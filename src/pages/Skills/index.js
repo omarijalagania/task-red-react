@@ -84,6 +84,15 @@ const Skills = () => {
           <button onClick={addProgrammingLangHandler} className='skill__button'>
             Add Programming Language
           </button>
+          {personalData?.skills.length === 0 ? (
+            <div
+              style={{ color: 'red', fontSize: '10px', marginBottom: '20px' }}
+            >
+              დაამატეთ მინიმუმ ერთი სკილი
+            </div>
+          ) : (
+            ''
+          )}
           {personalData.skills.length !== 0 ? (
             personalData.skills.map((skill) => (
               <SkillBox
