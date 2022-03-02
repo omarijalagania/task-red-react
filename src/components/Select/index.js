@@ -5,7 +5,7 @@ const Select = ({ data, onChange }) => {
     <select
       className='selection'
       onChange={onChange}
-      style={{ width: '320px' }}
+      style={{ width: '320px', maxWidth: '80%' }}
     >
       {data?.map((item) => {
         return (

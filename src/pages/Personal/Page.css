@@ -22,7 +22,7 @@
 }
 
 .page__right {
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
 }
 
@@ -48,4 +48,24 @@ h1 {
   line-height: 200%;
   max-width: 90%;
   padding: 0 10px;
+}
+
+/* Media query for mobile devices */
+
+@media (max-width: 1024px) {
+  .page {
+    flex-direction: column;
+  }
+  .page__left,
+  .page__right {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 280px) {
+  .page__heading {
+    font-size: 30px;
+    line-height: normal;
+  }
 }

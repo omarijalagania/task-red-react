@@ -30,3 +30,9 @@
   align-items: 'center';
   justify-content: 'flex-start';
 }
+
+@media (max-width: 280px) {
+  .covid {
+    max-width: 90%;
+  }
+}

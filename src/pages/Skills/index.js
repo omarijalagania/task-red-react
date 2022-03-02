@@ -101,7 +101,7 @@ const Skills = () => {
               />
             ))
           ) : (
-            <p>No Skills yet :(</p>
+            <p className='skill__error__message'>No Skills yet :(</p>
           )}
         </div>
       </div>

@@ -9,3 +9,12 @@
   cursor: pointer;
   margin-bottom: 50px;
 }
+
+@media (max-width: 280px) {
+  .skill__button {
+    margin: 10px auto;
+  }
+  .skill__error__message {
+    margin: 0 auto;
+  }
+}

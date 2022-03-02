@@ -49,3 +49,17 @@
   height: auto;
   max-width: 100%;
 }
+
+/* Media query for mobile devices */
+
+@media (max-width: 1024px) {
+  .home__headText {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 280px) {
+  .home__headText {
+    font-size: 30px;
+  }
+}

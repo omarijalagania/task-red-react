@@ -21,3 +21,12 @@
 .active {
   opacity: 1;
 }
+
+/* Media query for mobile devices */
+
+@media (max-width: 1024px) {
+  .pagination {
+    left: 50%;
+    bottom: 0;
+  }
+}

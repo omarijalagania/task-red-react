@@ -2,3 +2,12 @@
   resize: none;
   padding: 20px 12px;
 }
+
+/* Media query for mobile devices */
+
+@media (max-width: 280px) {
+  .textArea {
+    width: 80%;
+    margin: 0 auto;
+  }
+}

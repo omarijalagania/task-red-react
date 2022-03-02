@@ -18,3 +18,12 @@
   right: 10px;
   transform: translate(0, -50%);
 }
+
+@media (max-width: 280px) {
+  .datePicker__calendar {
+    width: 99%;
+  }
+  .datePicker__image {
+    right: -10px;
+  }
+}

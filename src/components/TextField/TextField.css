@@ -16,3 +16,12 @@
   font-style: italic;
   font-size: 12px;
 }
+
+/* 
+Media query for mobile devices */
+
+@media (max-width: 280px) {
+  .textField input {
+    max-width: 100%;
+  }
+}
