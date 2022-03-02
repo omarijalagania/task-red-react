@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import { DataContext } from '../../Context/dataContext'
 import axios from 'axios'
@@ -10,7 +10,7 @@ const SubmitPage = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
 
-  console.log(data)
+  const navigate = useNavigate()
 
   const bodySubmit = {
     token: personalData.token,
@@ -30,8 +30,14 @@ const SubmitPage = () => {
   }
 
   const handleSubmit = async () => {
-    const response = await axios.post('/application', bodySubmit)
-    setData(response.data)
+    try {
+      const response = await axios.post('/application', bodySubmit)
+      const data = await response.data
+      setData(data)
+      navigate('/thanks')
+    } catch (error) {
+      alert('Error')
+    }
   }
 
   return (

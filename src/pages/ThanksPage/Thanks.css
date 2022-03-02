@@ -1,0 +1,16 @@
+.thanks__page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+}
+
+.thanks__title {
+  font-family: 'Rowdies';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 76px;
+  line-height: 119px;
+  color: #fe3b1f;
+}

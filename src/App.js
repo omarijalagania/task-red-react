@@ -8,6 +8,7 @@ import About from './pages/About'
 import SubmitPage from './pages/SubmitPage'
 import NotFound from './pages/NotFound'
 import SubmitedPage from './pages/SubmitedPage'
+import THanksPage from './pages/ThanksPage'
 
 function App() {
   const location = useLocation()
@@ -22,10 +23,12 @@ function App() {
         <Route path='/about' element={<About />} />
         <Route path='/submit' element={<SubmitPage />} />
         <Route path='/submited' element={<SubmitedPage />} />
+        <Route path='/thanks' element={<THanksPage />} />
         <Route path='/*' element={<NotFound />} />
       </Routes>
       {location.pathname !== '/' &&
       location.pathname !== '/submit' &&
+      location.pathname !== '/thanks' &&
       location.pathname !== '/submited' ? (
         <Pagination />
       ) : (

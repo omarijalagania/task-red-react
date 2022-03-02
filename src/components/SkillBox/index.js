@@ -4,9 +4,7 @@ const SkillBox = ({ skill, onClick }) => {
   return (
     <div className='skillBox'>
       <p className='skillBox__language'>{skill.skill}</p>
-      <p className='skillBox__years'>
-        Years of expirience: {skill.expirienceYears}
-      </p>
+      <p className='skillBox__years'>Years of expirience: {skill.experience}</p>
       <img
         onClick={onClick}
         className='skillBox__delete'
