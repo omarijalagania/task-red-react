@@ -5,34 +5,56 @@ import { regEmail, regPhone } from '../../utils/regex'
 import Icon from '../Icon/'
 import './Pagination.css'
 
-const pages = [
-  {
-    id: 1,
-    path: '/personal',
-  },
-  {
-    id: 2,
-    path: '/skills',
-  },
-  {
-    id: 3,
-    path: '/covid',
-  },
-  {
-    id: 4,
-    path: '/about',
-  },
-  {
-    id: 5,
-    path: '/submit',
-  },
-]
-
 const Pagination = () => {
   const location = useLocation()
   let navigate = useNavigate()
   const [pageCount, setPageCount] = useState(0)
   const [personalData, setPersonalData] = useContext(DataContext)
+
+  const pages = [
+    {
+      id: 1,
+      path: '/personal',
+      active: personalData.name.length > 2,
+    },
+    {
+      id: 2,
+      path: '/skills',
+      isValid:
+        personalData.name.length > 2 &&
+        personalData.lastName.length > 2 &&
+        regEmail.test(personalData.email) &&
+        regPhone.test(personalData.phone),
+      active: personalData?.skills.length !== 0,
+    },
+    {
+      id: 3,
+      path: '/covid',
+      isValid: personalData?.skills.length !== 0,
+      active: personalData?.workPreferences !== '',
+    },
+    {
+      id: 4,
+      path: '/about',
+      isValid:
+        personalData?.workPreferences !== '' &&
+        personalData?.hadCovid &&
+        personalData?.hadCovidAt !== '' &&
+        personalData?.hadVaccination &&
+        personalData?.hadVaccinationAt !== '',
+      active: personalData?.DevTalkTopic.length > 10,
+    },
+    {
+      id: 5,
+      path: '/submit',
+      isValid:
+        personalData?.DevTalkTopic.length < 10
+          ? false
+          : true && personalData?.somethingSpecial.length < 10
+          ? false
+          : true,
+    },
+  ]
 
   //Move to next page
   const handleForwart = () => {
@@ -50,62 +72,23 @@ const Pagination = () => {
     }
   }
 
+  const navReturn = () =>
+    pages.map((page) => {
+      return (
+        <span
+          key={page.id}
+          onClick={() => page.isValid && navigate(`${page.path}`)}
+          className={`pagination__circle ${
+            location.pathname === `${page.path}` || page.active ? 'active' : ''
+          } `}
+        />
+      )
+    })
+
   return (
     <div className='pagination'>
       <Icon onClick={handleBack} name='right' />
-      <span
-        onClick={() => navigate('/personal')}
-        className={`pagination__circle ${
-          location.pathname === '/personal' || personalData.name !== ''
-            ? 'active'
-            : ''
-        } `}
-      />
-      <span
-        onClick={() =>
-          personalData.name.length > 2 &&
-          personalData.lastName.length > 2 &&
-          regEmail.test(personalData.email) &&
-          regPhone.test(personalData.phone)
-            ? navigate('/skills')
-            : ''
-        }
-        className={`pagination__circle ${
-          location.pathname === '/skills' || personalData?.skills.length !== 0
-            ? 'active'
-            : ''
-        } `}
-      />
-      <span
-        onClick={() => personalData?.skills.length !== 0 && navigate('/covid')}
-        className={`pagination__circle ${
-          location.pathname === '/covid' || personalData?.workPreferences
-            ? 'active'
-            : ''
-        } `}
-      />
-      <span
-        onClick={() =>
-          personalData?.hadCovid && personalData.hadCovidAt !== ''
-            ? personalData.hadCovidAt !== ''
-            : personalData?.hadCovid && navigate('/about')
-        }
-        className={`pagination__circle ${
-          location.pathname === '/about' ? 'active' : ''
-        } `}
-      />
-      <span
-        onClick={() =>
-          personalData?.DevTalkTopic.length < 10
-            ? false
-            : true && personalData?.somethingSpecial.length < 10
-            ? false
-            : true && navigate('/submit')
-        }
-        className={`pagination__circle ${
-          location.pathname === '/submit' ? 'active' : ''
-        } `}
-      />
+      {navReturn()}
       <Icon onClick={handleForwart} name='left' />
     </div>
   )
