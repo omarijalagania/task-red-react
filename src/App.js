@@ -36,22 +36,3 @@ function App() {
 }
 
 export default App
-
-// const { response, loading, error } = useAxios({
-//   method: 'post',
-//   url: '/posts',
-//   headers: JSON.stringify({ accept: '*/*' }),
-//   body: JSON.stringify({
-//       userId: 1,
-//       id: 19392,
-//       title: 'title',
-//       body: 'Sample text',
-//   }),
-// });
-// const [data, setData] = useState([]);
-
-// useEffect(() => {
-//   if (response !== null) {
-//       setData(response);
-//   }
-// }, [response]);
