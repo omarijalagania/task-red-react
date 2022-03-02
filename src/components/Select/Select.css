@@ -5,9 +5,23 @@
   max-width: 100%;
 }
 
-.selection select {
-  display: none;
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"  viewBox="0 0 24 24"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 5px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  padding: 1rem;
 }
+
+select img {
+  fill: red;
+}
+
 .select-selected:after {
   position: absolute;
   content: '';

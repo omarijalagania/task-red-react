@@ -3,9 +3,9 @@ import './Select.css'
 const Select = ({ data, onChange }) => {
   return (
     <select
+      className='selection'
       onChange={onChange}
       style={{ width: '320px' }}
-      className='selection'
     >
       {data?.map((item) => {
         return (
