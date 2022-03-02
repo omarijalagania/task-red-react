@@ -22,6 +22,10 @@ const pages = [
     id: 4,
     path: '/about',
   },
+  {
+    id: 5,
+    path: '/submit',
+  },
 ]
 
 const Pagination = () => {
@@ -82,12 +86,9 @@ const Pagination = () => {
       />
       <span
         onClick={() =>
-          personalData?.workPreferences !== '' &&
-          personalData?.hadCovid &&
-          personalData?.hadCovidAt !== '' &&
-          personalData?.hadVaccination &&
-          personalData?.hadVaccinationAt !== '' &&
-          navigate('/about')
+          personalData?.hadCovid && personalData.hadCovidAt !== ''
+            ? personalData.hadCovidAt !== ''
+            : personalData?.hadCovid && navigate('/about')
         }
         className={`pagination__circle ${
           location.pathname === '/about' ? 'active' : ''

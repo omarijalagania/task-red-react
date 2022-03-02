@@ -30,13 +30,28 @@ const SubmitPage = () => {
   }
 
   const handleSubmit = async () => {
-    try {
-      const response = await axios.post('/application', bodySubmit)
-      const data = await response.data
-      setData(data)
-      navigate('/thanks')
-    } catch (error) {
-      alert('Error')
+    if (
+      personalData.name !== '' &&
+      personalData.lastName !== '' &&
+      personalData.email !== '' &&
+      personalData.phone !== '' &&
+      personalData.skills !== '' &&
+      personalData.workPreferences !== '' &&
+      personalData.hadCovidAt !== '' &&
+      personalData.hadVaccinationAt !== '' &&
+      personalData.willOrganizeDevTalk !== '' &&
+      personalData.somethingSpecial !== ''
+    ) {
+      try {
+        const response = await axios.post('/application', bodySubmit)
+        const data = await response.data
+        setData(data)
+        navigate('/thanks')
+      } catch (error) {
+        alert('Error')
+      }
+    } else {
+      alert('Really? Please fill all fields')
     }
   }
 

@@ -24,12 +24,12 @@ function App() {
         <Route path='/submit' element={<SubmitPage />} />
         <Route path='/submited' element={<SubmitedPage />} />
         <Route path='/thanks' element={<THanksPage />} />
-        <Route path='/*' element={<NotFound />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
-      {location.pathname !== '/' &&
-      location.pathname !== '/submit' &&
-      location.pathname !== '/thanks' &&
-      location.pathname !== '/submited' ? (
+      {location.pathname === '/personal' ||
+      location.pathname === '/skills' ||
+      location.pathname === '/covid' ||
+      location.pathname === '/about' ? (
         <Pagination />
       ) : (
         <></>
