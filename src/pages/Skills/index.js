@@ -17,6 +17,8 @@ const Skills = () => {
   const [chosenSkill, setChosenSkill] = useState('HTML')
   const [expirienceYears, setExpirienceYears] = useState('')
 
+  console.log(personalData)
+
   //get skills from api with custom hook
   const { response } = useAxios({
     method: 'get',
@@ -40,9 +42,9 @@ const Skills = () => {
         skills: [
           ...personalData.skills,
           {
-            id: uuid(),
-            skill: chosenSkill,
-            expirienceYears: expirienceYears,
+            id: parseInt(Math.floor(Math.random() * 100)),
+            //skill: chosenSkill,
+            experience: JSON.parse(expirienceYears),
           },
         ],
       })

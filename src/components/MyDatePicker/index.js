@@ -16,13 +16,13 @@ const MyDatePicker = ({ personalData, setPersonalData, when }) => {
           if (when === 'when_covid') {
             setPersonalData({
               ...personalData,
-              hadCovidAt: moment(date).utc().local().format('DD/MM/YYYY'),
+              hadCovidAt: moment(date).utc().local().format('YYYY-MM-DD'),
             })
             setStartDate(date)
           } else if (when === 'when_vaccination') {
             setPersonalData({
               ...personalData,
-              hadVaccinationAt: moment(date).utc().local().format('DD/MM/YYYY'),
+              hadVaccinationAt: moment(date).utc().local().format('YYYY-MM-DD'),
             })
             setStartDate(date)
           }
