@@ -84,12 +84,10 @@ const Pagination = () => {
         onClick={() =>
           personalData?.workPreferences !== '' &&
           personalData?.hadCovid &&
-          personalData?.hadVaccination
-            ? personalData?.hadCovidAt !== '' &&
-              personalData?.hadVaccinationAt !== ''
-            : personalData?.hadCovidAt === '' &&
-              personalData?.hadVaccinationAt === '' &&
-              navigate('/about')
+          personalData?.hadCovidAt !== '' &&
+          personalData?.hadVaccination &&
+          personalData?.hadVaccinationAt !== '' &&
+          navigate('/about')
         }
         className={`pagination__circle ${
           location.pathname === '/about' ? 'active' : ''

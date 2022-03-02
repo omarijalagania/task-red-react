@@ -74,7 +74,7 @@ const Covid = () => {
                   checked={
                     personalData.workPreferences === 'from_home' ? true : false
                   }
-                  name='cheks'
+                  name='cheks1'
                 />
                 <div>From Home</div>
               </div>
@@ -98,7 +98,7 @@ const Covid = () => {
                   width='18px'
                   type='radio'
                   value='hybrid'
-                  name='cheks'
+                  name='cheks1'
                   checked={
                     personalData.workPreferences === 'hybrid' ? true : false
                   }
@@ -207,7 +207,7 @@ const Covid = () => {
                   width='18px'
                   type='radio'
                   value={true}
-                  name='cheks'
+                  name='cheks3'
                 />
                 <div>Yes</div>
               </div>
@@ -231,7 +231,7 @@ const Covid = () => {
                   width='18px'
                   type='radio'
                   value={false}
-                  name='cheks'
+                  name='cheks3'
                 />
                 <div>No</div>
               </div>
