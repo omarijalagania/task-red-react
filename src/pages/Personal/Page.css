@@ -63,6 +63,13 @@ h1 {
   }
 }
 
+@media (max-width: 480px) {
+  .page__heading {
+    font-size: 45px;
+    line-height: normal;
+  }
+}
+
 @media (max-width: 280px) {
   .page__heading {
     font-size: 30px;
