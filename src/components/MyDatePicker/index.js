@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import moment from 'moment'
 import DatePicker from 'react-datepicker'
 import './DatePicker.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const MyDatePicker = () => {
+const MyDatePicker = ({ personalData, setPersonalData, when }) => {
   const [startDate, setStartDate] = useState(new Date())
   return (
     <div className='datePicker'>
@@ -11,7 +12,21 @@ const MyDatePicker = () => {
         className='datePicker__calendar'
         selected={startDate}
         placeholderText='Date'
-        onChange={(date) => setStartDate(date)}
+        onChange={(date) => {
+          if (when === 'when_covid') {
+            setPersonalData({
+              ...personalData,
+              hadCovidAt: moment(date).utc().local().format('DD/MM/YYYY'),
+            })
+            setStartDate(date)
+          } else if (when === 'when_vaccination') {
+            setPersonalData({
+              ...personalData,
+              hadVaccinationAt: moment(date).utc().local().format('DD/MM/YYYY'),
+            })
+            setStartDate(date)
+          }
+        }}
       />
       <img
         className='datePicker__image'

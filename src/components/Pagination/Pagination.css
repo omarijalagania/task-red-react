@@ -1,10 +1,11 @@
 .pagination {
   position: absolute;
-  bottom: 10%;
+  bottom: 5%;
   left: 25%;
   display: flex;
   justify-content: space-between;
   width: 220px;
+  max-width: 100%;
   transform: translate(-50%);
 }
 

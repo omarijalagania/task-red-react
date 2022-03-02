@@ -70,7 +70,7 @@ const Skills = () => {
           className='textField'
           placeholder='Experience Duration in Years'
           type='number'
-          width='297px'
+          width='287px'
         />
         <div
           style={{
@@ -86,7 +86,7 @@ const Skills = () => {
             Add Programming Language
           </button>
           {personalData?.skills.length === 0 ? (
-            <Errors message='დაამატეთ მინიმუმ 1 სკილი' margin='20px' />
+            <Errors message='Add at least one skill' margin='20px' />
           ) : (
             ''
           )}

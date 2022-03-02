@@ -13,6 +13,7 @@ const TextField = (props) => {
         placeholder={props.placeholder}
         required={props.required}
         multiple={props.size}
+        checked={props.checked}
       />
     </div>
   )

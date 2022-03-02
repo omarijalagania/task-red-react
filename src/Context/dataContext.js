@@ -12,10 +12,10 @@ export const DataProvider = ({ children }) => {
     skills: [],
     workPreferences: '',
     hadCovid: false,
-    hadCovidAt: '2022-01-01',
+    hadCovidAt: '',
     hadVaccination: false,
-    hadVaccinationAt: '2022-01-01',
-    willOrganizeDevTalk: false,
+    hadVaccinationAt: '',
+    willOrganizeDevTalk: true,
     DevTalkTopic: '',
     somethingSpecial: '',
   })

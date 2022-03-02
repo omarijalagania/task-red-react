@@ -43,13 +43,34 @@ const Pagination = () => {
       <span
         onClick={() => personalData?.skills.length !== 0 && navigate('/covid')}
         className={`pagination__circle ${
-          location.pathname === '/covid' ? 'active' : ''
+          location.pathname === '/covid' || personalData?.workPreferences
+            ? 'active'
+            : ''
         } `}
       />
       <span
-        onClick={() => navigateHandler('/about')}
+        onClick={() =>
+          personalData?.workPreferences !== '' &&
+          personalData?.hadCovid &&
+          personalData?.hadCovidAt !== '' &&
+          personalData?.hadVaccination &&
+          personalData?.hadVaccinationAt !== '' &&
+          navigate('/about')
+        }
         className={`pagination__circle ${
           location.pathname === '/about' ? 'active' : ''
+        } `}
+      />
+      <span
+        onClick={() =>
+          personalData?.DevTalkTopic.length < 10
+            ? false
+            : true && personalData?.somethingSpecial.length < 10
+            ? false
+            : true && navigate('/submit')
+        }
+        className={`pagination__circle ${
+          location.pathname === '/submit' ? 'active' : ''
         } `}
       />
       <Icon name='left' />

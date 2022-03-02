@@ -20,7 +20,7 @@ const Personal = () => {
         />
 
         {personalData?.name.length < 2 ? (
-          <Errors message='სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები' />
+          <Errors message='Name Must be at least 2 symbols' />
         ) : (
           ''
         )}
@@ -37,7 +37,7 @@ const Personal = () => {
         />
 
         {personalData?.lastName.length < 2 ? (
-          <Errors message='სახელი არ უნდა იყოს 2 სიმბოლოზე ნაკლები' />
+          <Errors message='Lastname Must be at least 2 symbols' />
         ) : (
           ''
         )}
@@ -53,7 +53,7 @@ const Personal = () => {
         />
 
         {!regEmail.test(personalData?.email) ? (
-          <Errors message='მაილი არასწორია' />
+          <Errors message='Email is incorect' />
         ) : (
           ''
         )}
@@ -68,7 +68,7 @@ const Personal = () => {
         />
 
         {!regPhone.test(personalData?.phone) ? (
-          <Errors message='მობილური ნომერი არასწორია' />
+          <Errors message='Phone is incorrect' />
         ) : (
           ''
         )}

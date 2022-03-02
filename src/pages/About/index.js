@@ -1,21 +1,27 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import HeadText from '../../components/HeadText'
 import Text from '../../components/Text'
 import TextField from '../../components/TextField'
+import { DataContext } from '../../Context/dataContext'
 import { texts } from '../../texts/'
 import '../../pages/Personal/Page.css'
 import '../Covid/Covid.css'
 import '../../components/TextArea/TextArea.css'
 import TextArea from '../../components/TextArea'
+import Errors from '../../components/Errors'
 
 const About = () => {
+  const [personalData, setPersonalData] = useContext(DataContext)
+  console.log(personalData)
   return (
     <div className='page'>
       <div className='page__left'>
         <HeadText text='Tell us about your skills' className='page__heading' />
 
         <div className='covid'>
-          <p className='covid__text'>how would you prefer to work?</p>
+          <p className='covid__text'>
+            Would you attend Devtalks and maybe also organize your own?
+          </p>
           <div className='covid__box'>
             <div
               style={{
@@ -25,11 +31,19 @@ const About = () => {
               }}
             >
               <TextField
+                on
                 className='covid__textField'
                 width='18px'
                 type='radio'
-                value='test'
+                value={true}
+                onChange={(e) =>
+                  setPersonalData({
+                    ...personalData,
+                    willOrganizeDevTalk: JSON.parse(e.currentTarget.value),
+                  })
+                }
                 name='cheks'
+                checked={personalData?.willOrganizeDevTalk ? true : false}
               />
               <div>Yes</div>
             </div>
@@ -46,7 +60,13 @@ const About = () => {
                 className='covid__textField'
                 width='18px'
                 type='radio'
-                value='test'
+                value={false}
+                onChange={(e) =>
+                  setPersonalData({
+                    ...personalData,
+                    willOrganizeDevTalk: JSON.parse(e.currentTarget.value),
+                  })
+                }
                 name='cheks'
               />
               <div>No</div>
@@ -56,11 +76,41 @@ const About = () => {
         {/* Next question */}
         <div className='covid'>
           <p className='covid__text'>how would you prefer to work?</p>
-          <TextArea className='textArea' rows='6' placeholder='i would...' />
+          {personalData?.DevTalkTopic.length < 10 ? (
+            <Errors message='Please type at least 10 symbols' margin='10px' />
+          ) : (
+            <></>
+          )}
+          <TextArea
+            onChange={(e) =>
+              setPersonalData({
+                ...personalData,
+                DevTalkTopic: e.target.value,
+              })
+            }
+            className='textArea'
+            rows='6'
+            placeholder='i would...'
+          />
         </div>
         <div className='covid'>
           <p className='covid__text'>Tell us something special</p>
-          <TextArea className='textArea' rows='3' placeholder='i...' />
+          {personalData?.somethingSpecial.length < 10 ? (
+            <Errors message='Please type at least 10 symbols' margin='10px' />
+          ) : (
+            <></>
+          )}
+          <TextArea
+            onChange={(e) =>
+              setPersonalData({
+                ...personalData,
+                somethingSpecial: e.target.value,
+              })
+            }
+            className='textArea'
+            rows='3'
+            placeholder='i...'
+          />
         </div>
       </div>
       <div className='page__right'>
