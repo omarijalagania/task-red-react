@@ -1,5 +1,6 @@
 import React from 'react'
 import SecondaryText from '../SecondaryText'
+import TextField from '../TextField'
 import './Accordian.css'
 
 const Accordian = () => {
@@ -90,42 +91,50 @@ const Accordian = () => {
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '40px',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
               }}
             >
-              <p>First Name</p>
-              <p>Eren</p>
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>Work from home</div>
             </div>
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '40px',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
               }}
             >
-              <p>Last Name</p>
-              <p>Eren</p>
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>Work from Office</div>
             </div>
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '40px',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
               }}
             >
-              <p>Email</p>
-              <p>eren@gmail.com</p>
-            </div>
-            <div
-              style={{
-                display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '40px',
-              }}
-            >
-              <p>Phone</p>
-              <p>+995 999 999</p>
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>Hybrid</div>
             </div>
           </div>
           <div className='accordian__skillset'>
@@ -137,21 +146,130 @@ const Accordian = () => {
               style={{
                 display: 'flex',
                 justifyContent: 'space-between',
-                marginBottom: '40px',
               }}
             >
-              <p>PHP</p>
-              <p>Years of Experience: 3</p>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                }}
+              >
+                <TextField
+                  className='covid__textField'
+                  width='18px'
+                  type='radio'
+                  value={true}
+                  name='cheks'
+                />
+                <div>Yes</div>
+              </div>
             </div>
             <div
               style={{
                 display: 'flex',
-                justifyContent: 'space-between',
-                marginBottom: '40px',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
               }}
             >
-              <p>React</p>
-              <p>Years of Experience: 2</p>
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>No</div>
+            </div>
+          </div>
+        </div>
+        <div className='accordian__info__box'>
+          <div className='accordian__skillset'>
+            <h4 className='accordian__subTitle'>Did you have Covid 19?</h4>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                }}
+              >
+                <TextField
+                  className='covid__textField'
+                  width='18px'
+                  type='radio'
+                  value={true}
+                  name='cheks'
+                />
+                <div>Yes</div>
+              </div>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+              }}
+            >
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>No</div>
+            </div>
+          </div>
+          {/* Section */}
+          <div className='accordian__skillset'>
+            <SecondaryText text='Insigts' />
+            <h4 className='accordian__subTitle'>
+              Would you attend Devtalks and maybe also organize your own?
+            </h4>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+              }}
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'flex-start',
+                }}
+              >
+                <TextField
+                  className='covid__textField'
+                  width='18px'
+                  type='radio'
+                  value={true}
+                  name='cheks'
+                />
+                <div>Yes</div>
+              </div>
+            </div>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'flex-start',
+              }}
+            >
+              <TextField
+                className='covid__textField'
+                width='18px'
+                type='radio'
+                value={true}
+                name='cheks'
+              />
+              <div>No</div>
             </div>
           </div>
         </div>
