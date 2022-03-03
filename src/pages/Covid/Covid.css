@@ -8,6 +8,10 @@
   margin-bottom: 30px;
 }
 
+.covid__page {
+  height: 80vh !important;
+}
+
 .covid__textField {
   padding: 0;
   margin: 0;

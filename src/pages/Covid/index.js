@@ -10,11 +10,10 @@ import MyDatePicker from '../../components/MyDatePicker'
 import Errors from '../../components/Errors'
 const Covid = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
-  console.log(personalData)
   return (
     <>
-      <div className='page'>
-        <div className='page__left covid__page'>
+      <div className='page covid__page'>
+        <div className='page__left'>
           <HeadText text='Covid Stuff' className='page__heading' />
           <div className='covid'>
             <p className='covid__text'>how would you prefer to work?</p>
