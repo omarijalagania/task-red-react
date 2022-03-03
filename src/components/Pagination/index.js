@@ -103,7 +103,7 @@ const Pagination = () => {
   const handleBack = () => {
     if (pageCount > 0) {
       setPageCount(pageCount - 1)
-      pages[pageCount - 1].isValid && navigate(pages[pageCount - 1].path)
+      navigate(pages[pageCount - 1].path)
     }
   }
 
