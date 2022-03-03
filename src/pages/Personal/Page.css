@@ -14,15 +14,13 @@
 }
 
 .page__left {
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
   padding: 0 10px;
-  overflow-x: hidden;
   position: relative;
 }
 
 .page__right {
-  min-height: 100vh;
   background-color: black;
 }
 
@@ -43,6 +41,7 @@ h1 {
 .page__text {
   color: white;
   width: 450px;
+  max-width: 100%;
   margin: 0 auto;
   font-size: 21px;
   line-height: 200%;

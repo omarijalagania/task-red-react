@@ -3,6 +3,7 @@
   justify-content: center;
   flex-direction: column;
   width: 500px;
+  max-width: 100%;
   align-items: flex-start;
   margin: 0 auto;
   margin-bottom: 30px;
@@ -33,6 +34,12 @@
   display: 'flex';
   align-items: 'center';
   justify-content: 'flex-start';
+}
+
+@media (max-width: 1024px) {
+  .covid {
+    align-items: center;
+  }
 }
 
 @media (max-width: 280px) {
