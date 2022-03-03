@@ -1,3 +1,4 @@
+import React from 'react'
 import Home from './pages/home'
 import { Routes, Route, useLocation } from 'react-router-dom'
 import Page from './pages/Personal'
@@ -12,7 +13,6 @@ import THanksPage from './pages/ThanksPage'
 
 function App() {
   const location = useLocation()
-
   return (
     <>
       <Routes>

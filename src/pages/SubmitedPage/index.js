@@ -4,10 +4,11 @@ import { useAxios } from '../../hooks/useAxios'
 import env from 'react-dotenv'
 import './SubmitedPage.css'
 import NoItems from '../NoItems'
+import Loader from '../../components/Loader'
 const SubmitedPage = () => {
   const [data, setData] = useState([])
 
-  const { response } = useAxios({
+  const { response, loading } = useAxios({
     method: 'get',
     url: `/applications?token=${env.REACT_APP_TOKEN}`,
   })
@@ -17,8 +18,8 @@ const SubmitedPage = () => {
     }
   }, [response])
 
-  if (data?.length === 0) {
-    return <NoItems />
+  if (loading) {
+    return <Loader />
   }
 
   // :)
