@@ -13,15 +13,35 @@ const Pagination = () => {
 
   //from covid page to about page validation
   const isTrue = () => {
-    if (personalData?.hadCovid || personalData?.hadVaccination) {
-      if (
-        personalData?.hadCovidAt !== '' ||
-        personalData?.hadVaccinationAt !== ''
-      ) {
-        return true
-      }
-    } else {
+    if (
+      personalData?.hadCovid === true &&
+      personalData?.hadVaccination === true &&
+      personalData?.hadCovidAt === '' &&
+      personalData?.hadVaccinationAt === ''
+    ) {
       return false
+    } else if (
+      personalData?.hadCovid === true &&
+      personalData?.hadVaccination === true &&
+      personalData?.hadCovidAt !== '' &&
+      personalData?.hadVaccinationAt !== ''
+    ) {
+      return true
+    } else if (
+      personalData?.hadCovid === true &&
+      personalData?.hadCovidAt !== ''
+    ) {
+      return true
+    } else if (
+      personalData?.hadVaccination === true &&
+      personalData?.hadVaccinationAt !== ''
+    ) {
+      return true
+    } else if (
+      personalData?.hadCovid === false &&
+      personalData?.hadVaccination === false
+    ) {
+      return true
     }
   }
   const pages = [
@@ -29,6 +49,12 @@ const Pagination = () => {
       id: 1,
       path: '/personal',
       active: personalData.name.length > 2,
+      isValid:
+        personalData.name.length > 2 &&
+        personalData.lastName.length > 2 &&
+        regEmail.test(personalData.email) &&
+        regPhone.test(personalData.phone),
+      active: personalData.name.length !== 0,
     },
     {
       id: 2,
@@ -67,8 +93,9 @@ const Pagination = () => {
   //Move to next page
   const handleForwart = () => {
     if (pageCount < pages.length - 1) {
-      setPageCount(pageCount + 1)
-      navigate(pages[pageCount + 1].path)
+      pages[pageCount + 1].isValid && setPageCount(pageCount + 1)
+      pages[pageCount + 1].isValid && navigate(pages[pageCount + 1].path)
+      console.log(pages[pageCount])
     }
   }
 
@@ -76,10 +103,11 @@ const Pagination = () => {
   const handleBack = () => {
     if (pageCount > 0) {
       setPageCount(pageCount - 1)
-      navigate(pages[pageCount - 1].path)
+      pages[pageCount - 1].isValid && navigate(pages[pageCount - 1].path)
     }
   }
 
+  //pagination buttons with validation
   const navCircles = () =>
     pages.map((page) => {
       return (
