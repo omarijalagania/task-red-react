@@ -1,5 +1,6 @@
 .accordian {
   margin-top: 0;
+  transition: all 0.3s ease;
 }
 
 .accordian__item {
@@ -13,8 +14,13 @@
   background-color: #fe3b1f;
   display: flex;
   justify-content: space-between;
-  padding: 0 15px;
+  padding: 0 50px;
+  margin: 5px 0;
   align-items: center;
+}
+
+.accordian__icon {
+  cursor: pointer;
 }
 
 .accordian__content {

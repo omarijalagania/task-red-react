@@ -3,10 +3,9 @@ import Accordian from '../../components/Accordian'
 import { useAxios } from '../../hooks/useAxios'
 import env from 'react-dotenv'
 import './SubmitedPage.css'
+import NoItems from '../NoItems'
 const SubmitedPage = () => {
   const [data, setData] = useState([])
-
-  console.log(data)
 
   const { response } = useAxios({
     method: 'get',
@@ -18,9 +17,15 @@ const SubmitedPage = () => {
     }
   }, [response])
 
+  if (data?.length === 0) {
+    return <NoItems />
+  }
+
   return (
     <div className='submited'>
-      <Accordian />
+      {data?.map((item, index) => (
+        <Accordian key={Math.random(2) * 21} index={index} item={item} />
+      ))}
     </div>
   )
 }
