@@ -1,9 +1,11 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import HeadText from '../../components/HeadText'
 import './Home.css'
 function Home() {
+  const navigate = useNavigate()
+
   return (
     <div
       className='home'
@@ -18,9 +20,11 @@ function Home() {
         <Link to='/personal'>
           <Button title='Start Questionnaire' className='home__button' />
         </Link>
-        <Link to='/'>
-          <h3 className='home__applications'>Submited Applications</h3>
-        </Link>
+
+        <h3 onClick={() => navigate('/submited')} className='home__submitText'>
+          Submited Applications
+        </h3>
+
         <img
           src='/images/rocketman.png'
           alt='rocket'

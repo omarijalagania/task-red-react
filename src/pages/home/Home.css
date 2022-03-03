@@ -35,10 +35,12 @@
   cursor: pointer;
 }
 
-.home__applications {
+.home__submitText {
   margin-top: 30px;
   color: white;
   text-decoration: underline;
+  cursor: pointer;
+  z-index: 999;
 }
 
 .home__rocket {

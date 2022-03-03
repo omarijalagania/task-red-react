@@ -14,6 +14,8 @@ const TextField = (props) => {
         required={props.required}
         multiple={props.size}
         checked={props.checked}
+        readOnly={props.readOnly}
+        disabled={props.disabled}
       />
     </div>
   )

@@ -3,6 +3,7 @@ import React from 'react'
 const TextArea = (props) => {
   return (
     <textarea
+      disabled={props.disabled}
       onChange={props.onChange}
       className={props.className}
       rows={props.rows}

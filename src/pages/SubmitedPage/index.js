@@ -7,6 +7,8 @@ import NoItems from '../NoItems'
 const SubmitedPage = () => {
   const [data, setData] = useState([])
 
+  console.log(data)
+
   const { response } = useAxios({
     method: 'get',
     url: `/applications?token=${env.REACT_APP_TOKEN}`,
