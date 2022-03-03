@@ -1,4 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
+import { motion } from 'framer-motion'
+import { pageTransition } from '../../utils/animation'
 import TextField from '../../components/TextField'
 import HeadText from '../../components/HeadText'
 import Text from '../../components/Text'
@@ -69,7 +71,13 @@ const Skills = () => {
   )
 
   return (
-    <div className='page'>
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={pageTransition}
+      className='page'
+    >
       <div className='page__left'>
         <HeadText text='Tell us about your skills' className='page__heading' />
         <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
@@ -115,7 +123,7 @@ const Skills = () => {
         <HeadText text='A bit about our battles' className='page__heading' />
         <Text className='page__text' text={texts.skills} />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

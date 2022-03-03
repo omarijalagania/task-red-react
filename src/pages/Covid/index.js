@@ -1,4 +1,6 @@
 import React, { useContext } from 'react'
+import { motion } from 'framer-motion'
+import { pageTransition } from '../../utils/animation'
 import { DataContext } from '../../Context/dataContext'
 import HeadText from '../../components/HeadText'
 import { texts } from '../../texts/'
@@ -12,7 +14,13 @@ const Covid = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   return (
     <>
-      <div className='page covid__page'>
+      <motion.div
+        initial='out'
+        animate='in'
+        exit='out'
+        variants={pageTransition}
+        className='page covid__page'
+      >
         <div className='page__left'>
           <HeadText text='Covid Stuff' className='page__heading' />
           <div className='covid'>
@@ -273,7 +281,7 @@ const Covid = () => {
           <HeadText text='Redberry Covid Policies' className='page__heading' />
           <Text className='page__text' text={texts.covid} />
         </div>
-      </div>
+      </motion.div>
     </>
   )
 }

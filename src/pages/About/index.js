@@ -1,9 +1,11 @@
 import React, { useContext } from 'react'
+import { motion } from 'framer-motion'
 import HeadText from '../../components/HeadText'
 import Text from '../../components/Text'
 import TextField from '../../components/TextField'
 import { DataContext } from '../../Context/dataContext'
 import { texts } from '../../texts/'
+import { pageTransition } from '../../utils/animation'
 import '../../pages/Personal/Page.css'
 import '../Covid/Covid.css'
 import '../../components/TextArea/TextArea.css'
@@ -14,7 +16,13 @@ const About = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   console.log(personalData)
   return (
-    <div className='page'>
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={pageTransition}
+      className='page'
+    >
       <div className='page__left'>
         <HeadText text='Tell us about your skills' className='page__heading' />
 
@@ -117,7 +125,7 @@ const About = () => {
         <HeadText text='Redberrian Insights' className='page__heading' />
         <Text className='page__text' text={texts.about} />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

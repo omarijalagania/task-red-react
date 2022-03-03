@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react'
+import { motion } from 'framer-motion'
+import { pageTransition } from '../../utils/animation'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import { DataContext } from '../../Context/dataContext'
@@ -56,12 +58,18 @@ const SubmitPage = () => {
   }
 
   return (
-    <div className='submitPage'>
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={pageTransition}
+      className='submitPage'
+    >
       <Button title='Submit' onClick={handleSubmit} className='home__button' />
       <Link to='/'>
         <h3 className='home__submitText'>go back</h3>
       </Link>
-    </div>
+    </motion.div>
   )
 }
 

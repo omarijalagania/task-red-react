@@ -1,7 +1,9 @@
 import React, { useContext } from 'react'
+import { motion } from 'framer-motion'
 import Text from '../../components/Text'
 import HeadText from '../../components/HeadText'
 import { texts } from '../../texts'
+import { pageTransition } from '../../utils/animation'
 import TextField from '../../components/TextField'
 import { DataContext } from '../../Context/dataContext'
 import { regEmail, regPhone } from '../../utils/regex'
@@ -12,7 +14,13 @@ const Personal = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
 
   return (
-    <div className='page'>
+    <motion.div
+      initial='out'
+      animate='in'
+      exit='out'
+      variants={pageTransition}
+      className='page'
+    >
       <div className='page__left'>
         <HeadText
           text='Hey, Rocketeer, what are your coordinates?'
@@ -86,7 +94,7 @@ const Personal = () => {
         <HeadText text='Redberry Origins' className='page__heading' />
         <Text className='page__text' text={texts.personal} />
       </div>
-    </div>
+    </motion.div>
   )
 }
 

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useAxios } from '../../hooks/useAxios'
 import { motion } from 'framer-motion'
+import { pageTransition } from '../../utils/animation'
 import { ChevronUpOutline, ChevronDownOutline } from 'react-ionicons'
 import SecondaryText from '../SecondaryText'
 import TextArea from '../TextArea'
@@ -40,17 +41,6 @@ const Accordian = ({ index, item }) => {
         <p>Years of Experience: {skill.experience}</p>
       </div>
     ))
-  }
-
-  const pageTransition = {
-    in: {
-      opacity: 1,
-      y: 0,
-    },
-    out: {
-      opacity: 0,
-      y: -100,
-    },
   }
 
   return (
