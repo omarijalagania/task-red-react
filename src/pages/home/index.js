@@ -31,7 +31,7 @@ function Home() {
         <h3 onClick={() => navigate('/submited')} className='home__submitText'>
           Submited Applications
         </h3>
-        <motion.div whileHover={{ scale: 0.8 }}>
+        <motion.div whileTap={{ scale: 0.8 }}>
           <img
             src='/images/rocketman.png'
             alt='rocket'

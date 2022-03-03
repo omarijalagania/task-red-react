@@ -21,6 +21,11 @@
   align-items: center;
 }
 
+.accordian__subTitle {
+  font-family: 'Rowdies';
+  font-weight: lighter;
+}
+
 .accordian__icon {
   cursor: pointer;
 }
