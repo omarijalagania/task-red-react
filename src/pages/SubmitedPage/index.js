@@ -21,9 +21,12 @@ const SubmitedPage = () => {
     return <NoItems />
   }
 
+  // :)
+  const withoutEmptySkills = data?.filter((item) => item.skills.length > 0)
+
   return (
     <div className='submited'>
-      {data?.map((item, index) => (
+      {withoutEmptySkills?.map((item, index) => (
         <Accordian key={Math.random(2) * 21} index={index} item={item} />
       ))}
     </div>

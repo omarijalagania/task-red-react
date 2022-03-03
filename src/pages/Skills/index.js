@@ -10,6 +10,7 @@ import SkillBox from '../../components/SkillBox'
 import { useAxios } from '../../hooks/useAxios'
 import { DataContext } from '../../Context/dataContext'
 import Errors from '../../components/Errors'
+
 const Skills = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
@@ -31,6 +32,10 @@ const Skills = () => {
   const duplicate = personalData?.skills.some(
     (item) => item.title === chosenSkill,
   )
+
+  //extract ids from skills array
+  const skillId = data?.find((item) => item.title === chosenSkill)?.id
+
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
     if (chosenSkill !== '' && !duplicate && expirienceYears !== '') {
@@ -39,8 +44,7 @@ const Skills = () => {
         skills: [
           ...personalData.skills,
           {
-            id: parseInt(Math.floor(Math.random() * 100)),
-            title: chosenSkill, //ეს ბექზე არ იგზავნება, title - გარეშე იგზავნება მხოლოდ id და experience
+            id: skillId,
             experience: JSON.parse(expirienceYears),
           },
         ],
@@ -58,6 +62,11 @@ const Skills = () => {
       skills: personalData.skills.filter((skill) => skill.id !== id),
     })
   }
+
+  //get skills titles by id to show it on screen :)
+  const skillsWithTitle = data?.filter((skill1) =>
+    personalData?.skills.some((skill2) => skill1.id === skill2.id),
+  )
 
   return (
     <div className='page'>
@@ -90,7 +99,7 @@ const Skills = () => {
             ''
           )}
           {personalData.skills.length !== 0 ? (
-            personalData.skills.map((skill) => (
+            skillsWithTitle?.map((skill) => (
               <SkillBox
                 onClick={removeSkillHandler.bind(null, skill.id)}
                 skill={skill}

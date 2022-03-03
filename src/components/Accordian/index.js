@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import MyDatePicker from '../MyDatePicker'
+import React, { useState, useEffect } from 'react'
+import { useAxios } from '../../hooks/useAxios'
 import { ChevronUpOutline, ChevronDownOutline } from 'react-ionicons'
 import SecondaryText from '../SecondaryText'
 import TextArea from '../TextArea'
@@ -8,6 +8,22 @@ import './Accordian.css'
 
 const Accordian = ({ index, item }) => {
   const [active, setActive] = useState(false)
+  const [skills, setSkills] = useState([])
+
+  const { response } = useAxios({
+    method: 'get',
+    url: '/skills',
+  })
+  useEffect(() => {
+    if (response !== null) {
+      setSkills(response)
+    }
+  }, [response])
+
+  //extract skills titles by comparing ids
+  const skillTitles = skills?.filter((skill1) =>
+    item?.skills.some((skill2) => skill1.id === skill2.id),
+  )
 
   const skillsDrawer = () => {
     return item.skills.map((skill, index) => (
@@ -19,8 +35,7 @@ const Accordian = ({ index, item }) => {
           marginBottom: '40px',
         }}
       >
-        {/* title არ მოაქვს ბექიდან, დასაბმითების დროს არ არ ღებულობს title - ს */}
-        <p>PHP???</p>
+        <p>{skillTitles[index].title}</p>
         <p>Years of Experience: {skill.experience}</p>
       </div>
     ))
