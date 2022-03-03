@@ -9,15 +9,12 @@ import './Skills.css'
 import SkillBox from '../../components/SkillBox'
 import { useAxios } from '../../hooks/useAxios'
 import { DataContext } from '../../Context/dataContext'
-import uuid from 'react-uuid'
 import Errors from '../../components/Errors'
 const Skills = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
   const [chosenSkill, setChosenSkill] = useState('HTML')
   const [expirienceYears, setExpirienceYears] = useState('')
-
-  console.log(personalData)
 
   //get skills from api with custom hook
   const { response } = useAxios({
@@ -32,7 +29,7 @@ const Skills = () => {
 
   //not to add duplicates to skills array
   const duplicate = personalData?.skills.some(
-    (item) => item.skill === chosenSkill,
+    (item) => item.title === chosenSkill,
   )
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
@@ -43,7 +40,7 @@ const Skills = () => {
           ...personalData.skills,
           {
             id: parseInt(Math.floor(Math.random() * 100)),
-            //skill: chosenSkill,
+            title: chosenSkill, //ეს ბექზე არ იგზავნება, title - გარეშე იგზავნება მხოლოდ id და experience
             experience: JSON.parse(expirienceYears),
           },
         ],

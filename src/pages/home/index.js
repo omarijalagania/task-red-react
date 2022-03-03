@@ -1,20 +1,17 @@
 import React from 'react'
+
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import HeadText from '../../components/HeadText'
+import ParticleStars from '../../components/ParticlesStars'
 import './Home.css'
+
 function Home() {
   const navigate = useNavigate()
 
   return (
-    <div
-      className='home'
-      style={{
-        backgroundImage: `url('/images/stars.png')`,
-        backgroundPosition: 'center',
-        backgroundSize: 'cover',
-      }}
-    >
+    <div className='home'>
+      <ParticleStars />
       <div className='home__container'>
         <HeadText text='Welcome Rocketeer!' className='home__headText' />
         <Link to='/personal'>

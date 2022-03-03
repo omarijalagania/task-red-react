@@ -59,7 +59,7 @@ const SubmitPage = () => {
     <div className='submitPage'>
       <Button title='Submit' onClick={handleSubmit} className='home__button' />
       <Link to='/'>
-        <h3 className='home__applications'>go back</h3>
+        <h3 className='home__submitText'>go back</h3>
       </Link>
     </div>
   )
