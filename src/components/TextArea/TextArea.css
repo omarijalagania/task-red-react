@@ -1,6 +1,7 @@
 .textArea {
   resize: none;
   padding: 20px 12px;
+  max-width: 100%;
 }
 
 /* Media query for mobile devices */

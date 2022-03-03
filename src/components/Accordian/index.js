@@ -324,7 +324,7 @@ const Accordian = ({ index, item }) => {
                 />
               </div>
             </div>
-            <div style={{ marginLeft: '15%' }} className='accordian__skillset'>
+            <div className='accordian__skillset vaccine'>
               <h4 className='accordian__subTitle'>Have you been vaccinated?</h4>
               <div
                 style={{

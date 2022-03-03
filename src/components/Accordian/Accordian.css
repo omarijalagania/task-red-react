@@ -33,6 +33,10 @@
   width: 260px;
 }
 
+.vaccine {
+  margin-left: 15% !important;
+}
+
 .accordian__box p,
 span {
   color: white;
@@ -56,4 +60,23 @@ span {
   font-size: 18px;
   line-height: 22px;
   margin-bottom: 30px;
+}
+
+@media (max-width: 686px) {
+  .accordian__info__box {
+    flex-direction: column;
+    align-items: center;
+  }
+  .accordian__item {
+    width: 100%;
+  }
+  .vaccine {
+    margin-left: 30% !important;
+  }
+}
+
+@media (max-width: 280px) {
+  .vaccine {
+    margin-left: 8% !important;
+  }
 }
