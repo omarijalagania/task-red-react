@@ -128,6 +128,7 @@ const Covid = () => {
                   className='covid__textField'
                   width='18px'
                   type='radio'
+                  checked={personalData.hadCovid === true ? true : false}
                   value={true}
                   name='cheks'
                 />
@@ -152,6 +153,7 @@ const Covid = () => {
                   className='covid__textField'
                   width='18px'
                   type='radio'
+                  checked={personalData.hadCovid === false ? true : false}
                   value={false}
                   name='cheks'
                 />
@@ -207,6 +209,7 @@ const Covid = () => {
                   width='18px'
                   type='radio'
                   value={true}
+                  checked={personalData.hadVaccination === true ? true : false}
                   name='cheks3'
                 />
                 <div>Yes</div>
@@ -231,6 +234,7 @@ const Covid = () => {
                   width='18px'
                   type='radio'
                   value={false}
+                  checked={personalData.hadVaccination === false ? true : false}
                   name='cheks3'
                 />
                 <div>No</div>

@@ -7,10 +7,23 @@ import './Pagination.css'
 
 const Pagination = () => {
   const location = useLocation()
-  let navigate = useNavigate()
+  const navigate = useNavigate()
   const [pageCount, setPageCount] = useState(0)
   const [personalData, setPersonalData] = useContext(DataContext)
 
+  //from covid page to about page validation
+  const isTrue = () => {
+    if (personalData?.hadCovid || personalData?.hadVaccination) {
+      if (
+        personalData?.hadCovidAt !== '' ||
+        personalData?.hadVaccinationAt !== ''
+      ) {
+        return true
+      }
+    } else {
+      return false
+    }
+  }
   const pages = [
     {
       id: 1,
@@ -36,12 +49,7 @@ const Pagination = () => {
     {
       id: 4,
       path: '/about',
-      isValid:
-        personalData?.workPreferences !== '' &&
-        personalData?.hadCovid &&
-        personalData?.hadCovidAt !== '' &&
-        personalData?.hadVaccination &&
-        personalData?.hadVaccinationAt !== '',
+      isValid: personalData?.workPreferences !== '' && isTrue(),
       active: personalData?.DevTalkTopic.length > 10,
     },
     {
@@ -72,7 +80,7 @@ const Pagination = () => {
     }
   }
 
-  const navReturn = () =>
+  const navCircles = () =>
     pages.map((page) => {
       return (
         <span
@@ -88,19 +96,10 @@ const Pagination = () => {
   return (
     <div className='pagination'>
       <Icon onClick={handleBack} name='right' />
-      {navReturn()}
+      {navCircles()}
       <Icon onClick={handleForwart} name='left' />
     </div>
   )
 }
 
 export default Pagination
-
-// onClick={() =>
-//   personalData?.workPreferences !== '' &&
-//   personalData?.hadCovid &&
-//   personalData?.hadCovidAt !== '' &&
-//   personalData?.hadVaccination &&
-//   personalData?.hadVaccinationAt !== '' &&
-//   navigate('/about')
-// }

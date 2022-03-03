@@ -19,6 +19,7 @@ const Accordian = ({ index, item }) => {
           marginBottom: '40px',
         }}
       >
+        {/* title არ მოაქვს ბექიდან, დასაბმითების დროს არ არ ღებულობს title - ს */}
         <p>PHP???</p>
         <p>Years of Experience: {skill.experience}</p>
       </div>
@@ -26,7 +27,7 @@ const Accordian = ({ index, item }) => {
   }
 
   return (
-    <div className='accordian'>
+    <div className='accordian' onClick={() => setActive(!active)}>
       <div className='accordian__box'>
         <p>{index + 1}</p>
         <span className='accordian__icon' onClick={() => setActive(!active)}>
