@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useAxios } from '../../hooks/useAxios'
+import { motion } from 'framer-motion'
 import { ChevronUpOutline, ChevronDownOutline } from 'react-ionicons'
 import SecondaryText from '../SecondaryText'
 import TextArea from '../TextArea'
@@ -54,7 +55,18 @@ const Accordian = ({ index, item }) => {
         </span>
       </div>
       {active && (
-        <div className='accordian__item'>
+        <motion.div
+          key='content'
+          initial='collapsed'
+          animate='open'
+          exit='collapsed'
+          variants={{
+            open: { opacity: 1, height: 'auto' },
+            collapsed: { opacity: 0, height: 0 },
+          }}
+          transition={{ duration: 0.9, ease: [0.04, 0.62, 0.23, 0.98] }}
+          className='accordian__item'
+        >
           <div className='accordian__content'>
             <div className='accordian__info__box'>
               <div className='accordian__info'>
@@ -415,7 +427,7 @@ const Accordian = ({ index, item }) => {
               <div className='accordian__skillset'></div>
             </div>
           </div>
-        </div>
+        </motion.div>
       )}
     </div>
   )
