@@ -51,8 +51,6 @@ const Skills = () => {
           },
         ],
       })
-      setChosenSkill('')
-      setExpirienceYears('')
     }
   }
 
@@ -69,6 +67,17 @@ const Skills = () => {
   const skillsWithTitle = data?.filter((skill1) =>
     personalData?.skills.some((skill2) => skill1.id === skill2.id),
   )
+
+  let skillArrWithExperience = skillsWithTitle?.map((skill) => {
+    let expt = personalData?.skills.filter((exp) => exp.id === skill.id)[0]
+      .experience
+    let obj = {
+      id: skill.id,
+      title: skill.title,
+      experience: expt,
+    }
+    return obj
+  })
 
   return (
     <motion.div
@@ -102,12 +111,16 @@ const Skills = () => {
             Add Programming Language
           </button>
           {personalData?.skills.length === 0 ? (
-            <Errors message='Add at least one skill' margin='20px' />
+            <Errors
+              message='Add at least one skill, duplicates not allowed'
+              margin='20px'
+            />
           ) : (
             ''
           )}
+
           {personalData.skills.length !== 0 ? (
-            skillsWithTitle?.map((skill) => (
+            skillArrWithExperience?.map((skill) => (
               <SkillBox
                 onClick={removeSkillHandler.bind(null, skill.id)}
                 skill={skill}
