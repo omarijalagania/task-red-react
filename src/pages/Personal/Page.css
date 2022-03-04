@@ -21,6 +21,7 @@
 }
 
 .page__right {
+  height: 100vh;
   background-color: black;
 }
 
@@ -49,6 +50,20 @@ h1 {
   padding: 0 10px;
 }
 
+.PhoneInputCountry {
+  display: none !important;
+}
+
+.PhoneInput {
+  width: 332px;
+  max-width: 100%;
+  padding: 10px;
+  margin: 10px auto;
+}
+
+.PhoneInputInput {
+  padding: 15px;
+}
 /* Media query for mobile devices */
 
 @media (max-width: 1024px) {

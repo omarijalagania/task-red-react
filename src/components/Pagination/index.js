@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { DataContext } from '../../Context/dataContext'
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { regEmail, regPhone } from '../../utils/regex'
 import Icon from '../Icon/'
 import './Pagination.css'
@@ -53,7 +54,7 @@ const Pagination = () => {
         personalData.name.length > 2 &&
         personalData.lastName.length > 2 &&
         regEmail.test(personalData.email) &&
-        regPhone.test(personalData.phone),
+        isPossiblePhoneNumber(String(personalData?.phone)),
       active: personalData.name.length !== 0,
     },
     {
