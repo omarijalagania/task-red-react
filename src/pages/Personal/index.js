@@ -1,17 +1,29 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Text from '../../components/Text'
 import HeadText from '../../components/HeadText'
 import { texts } from '../../texts'
 import { pageTransition } from '../../utils/animation'
 import TextField from '../../components/TextField'
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input'
+import { isPossiblePhoneNumber } from 'react-phone-number-input'
 import { DataContext } from '../../Context/dataContext'
-import { regEmail, regPhone } from '../../utils/regex'
+import { regEmail } from '../../utils/regex'
 import './Page.css'
 import Errors from '../../components/Errors'
 
 const Personal = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
+  const [mobileValue, setMobileValue] = useState('')
+
+  //validate phone number
+  let validNum = isPossiblePhoneNumber(String(mobileValue))
+  useEffect(() => {
+    if (validNum) {
+      setPersonalData({ ...personalData, phone: String(mobileValue) })
+    }
+  }, [mobileValue])
 
   return (
     <motion.div
@@ -75,19 +87,25 @@ const Personal = () => {
           width='300px'
         />
 
-        {!regPhone.test(personalData?.phone) ? (
-          <Errors message='Phone is incorrect' />
-        ) : (
+        {isPossiblePhoneNumber(String(mobileValue)) ? (
           ''
+        ) : (
+          <Errors message='Phone is incorrect' />
         )}
-        <TextField
+        {/* <TextField
           required={false}
           placeholder='+995_ _ _ _'
           onChange={(e) =>
             setPersonalData({ ...personalData, phone: e.target.value })
           }
-          type='mobile'
+          type='tel'
           width='300px'
+        /> */}
+        <PhoneInput
+          placeholder='+995_ _ _ _'
+          defaultCountry='GE'
+          value={mobileValue}
+          onChange={setMobileValue}
         />
       </div>
       <div className='page__right'>
