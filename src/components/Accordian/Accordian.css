@@ -26,6 +26,10 @@
   font-weight: lighter;
 }
 
+.accordian__textField {
+  padding: 0;
+}
+
 .accordian__icon {
   cursor: pointer;
 }
@@ -37,6 +41,10 @@
 .accordian__info,
 .accordian__skillset {
   width: 260px;
+}
+
+.accordian__skillset {
+  max-width: 100%;
 }
 
 .vaccine {

@@ -1,7 +1,7 @@
 import React from 'react'
 import HeadText from '../../components/HeadText'
-import '../../pages/Personal/Page.css'
-import '../NotFound/NotFound.css'
+import '../Personal/Page.css'
+import './NotFound.css'
 
 const NotFound = () => {
   return (

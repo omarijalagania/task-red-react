@@ -5,11 +5,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import { DataContext } from '../../Context/dataContext'
 import axios from 'axios'
-import '../home/Home.css'
+import '../Home/Home.css'
 import './SubmitPage.css'
 
 const SubmitPage = () => {
-  const [personalData, setPersonalData] = useContext(DataContext)
+  const [personalData] = useContext(DataContext)
   const [data, setData] = useState([])
 
   const navigate = useNavigate()

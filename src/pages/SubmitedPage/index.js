@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react'
 import Accordian from '../../components/Accordian'
+import { useNavigate } from 'react-router-dom'
 import { useAxios } from '../../hooks/useAxios'
 import env from 'react-dotenv'
 import './SubmitedPage.css'
-import NoItems from '../NoItems'
 import Loader from '../../components/Loader'
+import Button from '../../components/Button'
 const SubmitedPage = () => {
   const [data, setData] = useState([])
-
+  const navigate = useNavigate()
   const { response, loading } = useAxios({
     method: 'get',
     url: `/applications?token=${env.REACT_APP_TOKEN}`,
@@ -30,6 +31,11 @@ const SubmitedPage = () => {
       {withoutEmptySkills?.map((item, index) => (
         <Accordian key={Math.random(2) * 21} index={index} item={item} />
       ))}
+      <Button
+        className='submited__btn'
+        title='Main Page'
+        onClick={() => navigate('/')}
+      />
     </div>
   )
 }

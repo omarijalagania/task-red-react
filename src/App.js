@@ -1,40 +1,25 @@
 import React from 'react'
-import Home from './pages/home'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import Page from './pages/Personal'
-import Skills from './pages/Skills'
-import Pagination from './components/Pagination'
-import Covid from './pages/Covid'
-import About from './pages/About'
-import SubmitPage from './pages/SubmitPage'
-import NotFound from './pages/NotFound'
-import SubmitedPage from './pages/SubmitedPage'
-import THanksPage from './pages/ThanksPage'
+import Home from './Pages/Home'
+import { Routes, Route } from 'react-router-dom'
+import Page from './Pages/Personal'
+import SubmitPage from './Pages/SubmitPage'
+import NotFound from './Pages/NotFound'
+import SubmitedPage from './Pages/SubmitedPage'
+import THanksPage from './Pages/ThanksPage'
 
 function App() {
-  const location = useLocation()
   return (
-    <>
-      <Routes>
-        <Route index path='/' element={<Home />} />
-        <Route path='/personal' element={<Page />} />
-        <Route path='/skills' element={<Skills />} />
-        <Route path='/covid' element={<Covid />} />
-        <Route path='/about' element={<About />} />
-        <Route path='/submit' element={<SubmitPage />} />
-        <Route path='/submited' element={<SubmitedPage />} />
-        <Route path='/thanks' element={<THanksPage />} />
-        <Route path='*' element={<NotFound />} />
-      </Routes>
-      {location.pathname === '/personal' ||
-      location.pathname === '/skills' ||
-      location.pathname === '/covid' ||
-      location.pathname === '/about' ? (
-        <Pagination />
-      ) : (
-        <></>
-      )}
-    </>
+    <Routes>
+      <Route index path='/' element={<Home />} />
+      <Route path='/covid' element={<Page />} />
+      <Route path='/personal' element={<Page />} />
+      <Route path='/skills' element={<Page />} />
+      <Route path='/about' element={<Page />} />
+      <Route path='/submit' element={<SubmitPage />} />
+      <Route path='/submited' element={<SubmitedPage />} />
+      <Route path='/thanks' element={<THanksPage />} />
+      <Route path='*' element={<NotFound />} />
+    </Routes>
   )
 }
 

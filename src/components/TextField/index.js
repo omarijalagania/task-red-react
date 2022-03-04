@@ -4,7 +4,7 @@ const TextField = (props) => {
   return (
     <div className='textField'>
       <input
-        style={{ width: props.width, maxWidth: '80%' }}
+        style={{ width: props.width, maxWidth: '100%' }}
         onChange={props.onChange}
         className={props.className}
         type={props.type}

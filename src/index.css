@@ -1,3 +1,9 @@
+/* variables */
+
+:root {
+  --rocket: #fe3b1f;
+}
+
 body {
   /* simple reset */
   margin: 0;

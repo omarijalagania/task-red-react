@@ -1,12 +1,10 @@
 .pagination {
-  position: absolute;
-  bottom: 10px;
-  left: 25%;
+  position: relative;
+  bottom: 0;
   display: flex;
   justify-content: space-between;
   width: 220px;
   max-width: 100%;
-  transform: translate(-50%);
 }
 
 .pagination__circle {
@@ -20,13 +18,4 @@
 
 .active {
   opacity: 1;
-}
-
-/* Media query for mobile devices */
-
-@media (max-width: 1024px) {
-  .pagination {
-    left: 50%;
-    bottom: 0;
-  }
 }

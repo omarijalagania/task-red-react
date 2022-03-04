@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { DataContext } from '../../Context/dataContext'
 import { isPossiblePhoneNumber } from 'react-phone-number-input'
-import { regEmail, regPhone } from '../../utils/regex'
+import { regEmail } from '../../utils/regex'
 import Icon from '../Icon/'
 import './Pagination.css'
 
@@ -10,7 +10,7 @@ const Pagination = () => {
   const location = useLocation()
   const navigate = useNavigate()
   const [pageCount, setPageCount] = useState(0)
-  const [personalData, setPersonalData] = useContext(DataContext)
+  const [personalData] = useContext(DataContext)
 
   //from covid page to about page validation
   const isTrue = () => {
@@ -49,7 +49,6 @@ const Pagination = () => {
     {
       id: 1,
       path: '/personal',
-      active: personalData.name.length > 2,
       isValid:
         personalData.name.length > 2 &&
         personalData.lastName.length > 2 &&
@@ -64,7 +63,7 @@ const Pagination = () => {
         personalData.name.length > 2 &&
         personalData.lastName.length > 2 &&
         regEmail.test(personalData.email) &&
-        regPhone.test(personalData.phone),
+        isPossiblePhoneNumber(String(personalData?.phone)),
       active: personalData?.skills.length !== 0,
     },
     {

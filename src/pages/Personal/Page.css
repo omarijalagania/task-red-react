@@ -1,11 +1,6 @@
 .page {
   min-height: 100vh;
   display: flex;
-  align-items: center;
-}
-
-.covid__page {
-  height: 100vh !important;
 }
 
 .page__left,
@@ -15,18 +10,24 @@
 
 .page__left {
   min-height: 100vh;
-  text-align: center;
-  padding: 0 10px;
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.covid__page {
+  min-height: 100vh;
 }
 
 .page__right {
-  height: 100vh;
+  min-height: 100vh;
   background-color: black;
+  padding-top: 10px;
 }
 
 .page__heading {
-  color: #fe3b1f;
+  color: var(--rocket);
   font-family: 'Rowdies';
   font-weight: normal;
   line-height: 79px;
@@ -63,6 +64,7 @@ h1 {
 
 .PhoneInputInput {
   padding: 15px;
+  border: 1px solid black;
 }
 /* Media query for mobile devices */
 
@@ -88,5 +90,6 @@ h1 {
   .page__heading {
     font-size: 30px;
     line-height: normal;
+    justify-content: center;
   }
 }

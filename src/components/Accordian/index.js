@@ -7,7 +7,7 @@ import SecondaryText from '../SecondaryText'
 import TextArea from '../TextArea'
 import TextField from '../TextField'
 import './Accordian.css'
-
+import '../../Pages/Covid/Covid.css'
 const Accordian = ({ index, item }) => {
   const [active, setActive] = useState(false)
   const [skills, setSkills] = useState([])
@@ -152,7 +152,7 @@ const Accordian = ({ index, item }) => {
                   }}
                 >
                   <TextField
-                    className='covid__textField'
+                    className='__textField'
                     width='18px'
                     type='radio'
                     checked={

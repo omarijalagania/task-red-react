@@ -1,0 +1,15 @@
+.submited__btn {
+  background-color: #fe3b1f;
+  color: white;
+  font-family: 'Rowdies';
+  font-size: 20px;
+  font-weight: lighter;
+  border: 2px solid #fe3b1f;
+  padding: 10px 50px;
+  margin-top: 20px;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
