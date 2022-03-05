@@ -1,3 +1,8 @@
+.submited {
+  min-height: 100vh;
+  background-color: black;
+}
+
 .submited__btn {
   background-color: #fe3b1f;
   color: white;

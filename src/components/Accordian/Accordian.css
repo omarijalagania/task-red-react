@@ -1,24 +1,32 @@
 .accordian {
-  margin-top: 0;
+  margin: 0 auto;
+  width: 80%;
   transition: all 0.3s ease;
   color: rgb(163, 163, 163);
   cursor: pointer;
+  border: 2px solid black;
 }
 
 .accordian__item {
-  width: 80%;
+  background-color: white;
+  width: 91%;
   margin: 0 auto;
 }
 
 .accordian__box {
-  max-width: 100%;
+  max-width: 80%;
   height: 50px;
   background-color: #fe3b1f;
   display: flex;
   justify-content: space-between;
   padding: 0 50px;
-  margin: 5px 0;
+  margin: 0 auto;
+
   align-items: center;
+}
+
+.accordian__box:first-child {
+  margin-top: 0px;
 }
 
 .accordian__subTitle {
@@ -32,10 +40,6 @@
 
 .accordian__icon {
   cursor: pointer;
-}
-
-.accordian__content {
-  margin-top: 50px;
 }
 
 .accordian__info,
@@ -60,6 +64,7 @@ span {
 }
 
 .accordian__info__box {
+  padding-top: 30px;
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
