@@ -43,6 +43,7 @@ const PersonalLeft = () => {
       )}
 
       <TextField
+        className='page__textField'
         required={true}
         placeholder='First Name'
         value={personalData.name}
@@ -59,6 +60,7 @@ const PersonalLeft = () => {
         ''
       )}
       <TextField
+        className='page__textField'
         required={true}
         placeholder='Last Name'
         value={personalData.lastName}
@@ -75,6 +77,7 @@ const PersonalLeft = () => {
         ''
       )}
       <TextField
+        className='page__textField'
         required={true}
         placeholder='Email'
         onChange={(e) =>

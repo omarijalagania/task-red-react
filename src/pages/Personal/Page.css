@@ -93,6 +93,10 @@ h1 {
   }
   .PhoneInput {
     padding: 0;
-    width: 280px;
+    width: 270px;
+  }
+  .page__textField {
+    width: 90%;
+    width: 240px !important;
   }
 }

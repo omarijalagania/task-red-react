@@ -27,10 +27,3 @@ Media query for mobile devices */
     width: 250px;
   }
 }
-
-@media (max-width: 280px) {
-  .textField input {
-    width: 90%;
-    width: 250px !important;
-  }
-}

@@ -23,4 +23,7 @@
   .skill__error__message {
     margin: 0 auto;
   }
+  .skills__textField {
+    width: 224px !important;
+  }
 }
