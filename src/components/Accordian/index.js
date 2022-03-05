@@ -315,17 +315,17 @@ const Accordian = ({ index, item }) => {
                     </h4>
                     <div
                       style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
+                        maxWidth: '80%',
                       }}
-                    ></div>
-                    <TextField
-                      className='covid__textField covid__date'
-                      placeholder={item?.had_covid_at}
-                      disabled={true}
-                      type='text'
-                      width='300px'
-                    />
+                    >
+                      <TextField
+                        className='covid__textField covid__date'
+                        placeholder={item?.had_covid_at}
+                        disabled={true}
+                        type='text'
+                        width='280px'
+                      />
+                    </div>
                   </>
                 )}
               </div>
@@ -405,17 +405,17 @@ const Accordian = ({ index, item }) => {
                     </h4>
                     <div
                       style={{
-                        display: 'flex',
-                        justifyContent: 'space-between',
+                        maxWidth: '80%',
                       }}
-                    ></div>
-                    <TextField
-                      className='covid__textField'
-                      placeholder={item?.vaccinated_at}
-                      disabled={true}
-                      type='text'
-                      width='300px'
-                    />
+                    >
+                      <TextField
+                        className='covid__textField'
+                        placeholder={item?.vaccinated_at}
+                        disabled={true}
+                        type='text'
+                        width='280px'
+                      />
+                    </div>
                   </>
                 )}
               </div>
