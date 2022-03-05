@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
 import env from 'react-dotenv'
 import { pageTransition } from '../../utils/animation'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import { DataContext } from '../../Context/dataContext'
 import axios from 'axios'
@@ -32,8 +32,6 @@ const SubmitPage = () => {
     something_special: personalData.somethingSpecial,
   }
 
-  console.log(personalData)
-
   const handleSubmit = async () => {
     if (
       personalData.name !== '' &&
@@ -49,7 +47,7 @@ const SubmitPage = () => {
         const response = await axios.post('/application', bodySubmit)
         const res = await response
         setData(res)
-
+        //clear state after submit
         setPesonalData({
           token: env.REACT_APP_TOKEN,
           name: '',
@@ -85,9 +83,10 @@ const SubmitPage = () => {
       className='submitPage'
     >
       <Button title='Submit' onClick={handleSubmit} className='home__button' />
-      <Link to='/'>
-        <h3 className='home__submitText'>go back</h3>
-      </Link>
+
+      <h3 onClick={() => navigate(-1)} className='home__submitText'>
+        go back
+      </h3>
     </motion.div>
   )
 }
