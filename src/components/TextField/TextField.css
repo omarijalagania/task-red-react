@@ -21,8 +21,16 @@
 /* 
 Media query for mobile devices */
 
+@media (max-width: 330px) {
+  .textField input {
+    max-width: 90%;
+    width: 250px;
+  }
+}
+
 @media (max-width: 280px) {
   .textField input {
-    max-width: 100%;
+    width: 90%;
+    width: 250px !important;
   }
 }

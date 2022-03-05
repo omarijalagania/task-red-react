@@ -50,7 +50,7 @@ const PersonalLeft = () => {
           setPersonalData({ ...personalData, name: e.target.value })
         }
         type='text'
-        width='300px'
+        width='280px'
       />
 
       {personalData?.lastName.length < 2 ? (
@@ -66,7 +66,7 @@ const PersonalLeft = () => {
           setPersonalData({ ...personalData, lastName: e.target.value })
         }
         type='text'
-        width='297px'
+        width='280px'
       />
 
       {!regEmail.test(personalData?.email) ? (
@@ -81,7 +81,7 @@ const PersonalLeft = () => {
           setPersonalData({ ...personalData, email: e.target.value })
         }
         type='email'
-        width='300px'
+        width='280px'
       />
 
       {isPossiblePhoneNumber(String(mobileValue)) ? (
