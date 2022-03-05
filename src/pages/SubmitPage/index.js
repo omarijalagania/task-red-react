@@ -84,7 +84,7 @@ const SubmitPage = () => {
     >
       <Button title='Submit' onClick={handleSubmit} className='home__button' />
 
-      <h3 onClick={() => navigate(-1)} className='home__submitText'>
+      <h3 onClick={() => navigate('/about')} className='home__submitText'>
         go back
       </h3>
     </motion.div>
