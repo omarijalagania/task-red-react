@@ -32,6 +32,8 @@ const SubmitPage = () => {
     something_special: personalData.somethingSpecial,
   }
 
+  console.log(personalData)
+
   const handleSubmit = async () => {
     if (
       personalData.name !== '' &&
@@ -40,16 +42,14 @@ const SubmitPage = () => {
       personalData.phone !== '' &&
       personalData.skills !== '' &&
       personalData.workPreferences !== '' &&
-      personalData.hadCovidAt !== '' &&
-      personalData.hadVaccinationAt !== '' &&
       personalData.willOrganizeDevTalk !== '' &&
       personalData.somethingSpecial !== ''
     ) {
       try {
         const response = await axios.post('/application', bodySubmit)
-        const data = await response.data
-        setData(data)
-        //clear all data
+        const res = await response
+        setData(res)
+
         setPesonalData({
           token: env.REACT_APP_TOKEN,
           name: '',
@@ -66,6 +66,7 @@ const SubmitPage = () => {
           DevTalkTopic: '',
           somethingSpecial: '',
         })
+
         navigate('/thanks')
       } catch (error) {
         alert('Error')
