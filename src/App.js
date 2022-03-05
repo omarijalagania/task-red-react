@@ -1,11 +1,11 @@
 import React from 'react'
-import Home from '../src/Pages/Home'
+import Home from './pages/home'
 import { Routes, Route } from 'react-router-dom'
-import Page from './Pages/Personal'
-import SubmitPage from './Pages/SubmitPage'
-import NotFound from './Pages/NotFound'
-import SubmitedPage from './Pages/SubmitedPage'
-import THanksPage from './Pages/ThanksPage'
+import Page from './pages/Personal'
+import SubmitPage from './pages/SubmitPage'
+import NotFound from './pages/NotFound'
+import SubmitedPage from './pages/SubmitedPage'
+import THanksPage from './pages/ThanksPage'
 
 function App() {
   return (

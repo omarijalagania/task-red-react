@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
 import { DataContext } from '../../Context/dataContext'
 import axios from 'axios'
-import '../Home/Home.css'
+import '../home/Home.css'
 import './SubmitPage.css'
 
 const SubmitPage = () => {

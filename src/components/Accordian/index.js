@@ -7,7 +7,7 @@ import SecondaryText from '../SecondaryText'
 import TextArea from '../TextArea'
 import TextField from '../TextField'
 import './Accordian.css'
-import '../../Pages/Covid/Covid.css'
+import '../../pages/Covid/Covid.css'
 const Accordian = ({ index, item }) => {
   const [active, setActive] = useState(false)
   const [skills, setSkills] = useState([])

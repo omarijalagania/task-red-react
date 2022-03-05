@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Accordian from '../../components/Accordian/'
+import Accordian from '../../components/Accordian'
 import { useNavigate } from 'react-router-dom'
 import { useAxios } from '../../hooks/useAxios'
 import env from 'react-dotenv'

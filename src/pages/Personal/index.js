@@ -13,7 +13,7 @@ import SkillsLeft from '../Skills/SkillsLeft'
 import SkillsRight from '../Skills/SkillsRight'
 import AboutRight from '../About/AboutRight'
 import AboutLeft from '../About/AboutLeft'
-import Home from '../Home'
+import Home from '../home'
 
 const Personal = () => {
   const location = useLocation()
