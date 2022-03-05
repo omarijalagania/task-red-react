@@ -23,7 +23,14 @@ const PersonalLeft = () => {
   }, [mobileValue])
 
   return (
-    <>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
       <HeadText
         text='Hey, Rocketeer, what are your coordinates?'
         className='page__heading'
@@ -88,7 +95,7 @@ const PersonalLeft = () => {
         value={mobileValue}
         onChange={setMobileValue}
       />
-    </>
+    </div>
   )
 }
 export default PersonalLeft
