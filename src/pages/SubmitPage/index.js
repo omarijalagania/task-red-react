@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import { motion } from 'framer-motion'
+import env from 'react-dotenv'
 import { pageTransition } from '../../utils/animation'
 import { Link, useNavigate } from 'react-router-dom'
 import Button from '../../components/Button'
@@ -9,7 +10,7 @@ import '../home/Home.css'
 import './SubmitPage.css'
 
 const SubmitPage = () => {
-  const [personalData] = useContext(DataContext)
+  const [personalData, setPesonalData] = useContext(DataContext)
   const [data, setData] = useState([])
 
   const navigate = useNavigate()
@@ -48,6 +49,23 @@ const SubmitPage = () => {
         const response = await axios.post('/application', bodySubmit)
         const data = await response.data
         setData(data)
+        //clear all data
+        setPesonalData({
+          token: env.REACT_APP_TOKEN,
+          name: '',
+          lastName: '',
+          email: '',
+          phone: '',
+          skills: [],
+          workPreferences: '',
+          hadCovid: false,
+          hadCovidAt: '',
+          hadVaccination: false,
+          hadVaccinationAt: '',
+          willOrganizeDevTalk: true,
+          DevTalkTopic: '',
+          somethingSpecial: '',
+        })
         navigate('/thanks')
       } catch (error) {
         alert('Error')
