@@ -7,6 +7,7 @@
   align-items: center;
   border: 1px solid black;
   padding: 0 8px;
+  margin: 10px 0;
 }
 
 .skillBox__language,
@@ -27,6 +28,6 @@
 @media (max-width: 280px) {
   .skillBox {
     max-width: 80%;
-    margin: 0 auto;
+    margin: 10px auto;
   }
 }

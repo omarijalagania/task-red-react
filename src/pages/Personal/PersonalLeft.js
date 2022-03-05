@@ -43,6 +43,7 @@ const PersonalLeft = () => {
       )}
 
       <TextField
+        className='page__textField'
         required={true}
         placeholder='First Name'
         value={personalData.name}
@@ -50,7 +51,7 @@ const PersonalLeft = () => {
           setPersonalData({ ...personalData, name: e.target.value })
         }
         type='text'
-        width='300px'
+        width='280px'
       />
 
       {personalData?.lastName.length < 2 ? (
@@ -59,6 +60,7 @@ const PersonalLeft = () => {
         ''
       )}
       <TextField
+        className='page__textField'
         required={true}
         placeholder='Last Name'
         value={personalData.lastName}
@@ -66,7 +68,7 @@ const PersonalLeft = () => {
           setPersonalData({ ...personalData, lastName: e.target.value })
         }
         type='text'
-        width='297px'
+        width='280px'
       />
 
       {!regEmail.test(personalData?.email) ? (
@@ -75,13 +77,14 @@ const PersonalLeft = () => {
         ''
       )}
       <TextField
+        className='page__textField'
         required={true}
         placeholder='Email'
         onChange={(e) =>
           setPersonalData({ ...personalData, email: e.target.value })
         }
         type='email'
-        width='300px'
+        width='280px'
       />
 
       {isPossiblePhoneNumber(String(mobileValue)) ? (

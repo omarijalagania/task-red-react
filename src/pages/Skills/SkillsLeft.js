@@ -81,7 +81,7 @@ const SkillsLeft = () => {
       <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
       <TextField
         onChange={(e) => setExpirienceYears(e.target.value)}
-        className='textField'
+        className='textField skills__textField'
         placeholder='Experience Duration in Years'
         type='number'
         width='287px'

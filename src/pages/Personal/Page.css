@@ -55,7 +55,7 @@ h1 {
 }
 
 .PhoneInput {
-  width: 332px;
+  width: 312px;
   max-width: 100%;
   padding: 10px;
   margin: 10px auto;
@@ -90,5 +90,13 @@ h1 {
     font-size: 30px;
     line-height: normal;
     justify-content: center;
+  }
+  .PhoneInput {
+    padding: 0;
+    width: 270px;
+  }
+  .page__textField {
+    width: 90%;
+    width: 240px !important;
   }
 }
