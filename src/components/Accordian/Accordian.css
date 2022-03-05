@@ -95,7 +95,16 @@ span {
 }
 
 @media (max-width: 280px) {
+  .accordian__item {
+    min-width: 100%;
+  }
+  .accordian__info {
+    width: 200px;
+  }
   .vaccine {
     margin-left: 8% !important;
+  }
+  .accordian {
+    min-width: 100%;
   }
 }

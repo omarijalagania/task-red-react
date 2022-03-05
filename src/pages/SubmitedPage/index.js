@@ -6,6 +6,7 @@ import env from 'react-dotenv'
 import './SubmitedPage.css'
 import Loader from '../../components/Loader'
 import Button from '../../components/Button'
+import HeadText from '../../components/HeadText'
 const SubmitedPage = () => {
   const [data, setData] = useState([])
   const navigate = useNavigate()
@@ -28,6 +29,15 @@ const SubmitedPage = () => {
 
   return (
     <div className='submited'>
+      <div
+        style={{
+          maxWidth: '73%',
+          margin: '0 auto',
+          padding: '25px 0',
+        }}
+      >
+        <HeadText text='Submitted Applications' className='submited__text' />
+      </div>
       {withoutEmptySkills?.map((item, index) => (
         <Accordian key={Math.random(2) * 21} index={index} item={item} />
       ))}

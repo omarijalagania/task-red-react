@@ -11,10 +11,30 @@
   font-weight: lighter;
   border: 2px solid #fe3b1f;
   padding: 10px 50px;
-  margin-top: 20px;
+  margin: 20px 0;
   border-radius: 50px;
   cursor: pointer;
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.submited__text {
+  font-family: 'Rowdies';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 70px;
+  color: white;
+  text-align: left;
+}
+
+/* Media queries */
+
+@media (max-width: 280px) {
+  .submited__text {
+    font-size: 30px;
+    line-height: 40px;
+    text-align: center;
+  }
 }
