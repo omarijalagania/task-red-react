@@ -1,5 +1,5 @@
 import React from 'react'
-import Home from './Pages/Home'
+import Home from '../src/Pages/Home'
 import { Routes, Route } from 'react-router-dom'
 import Page from './Pages/Personal'
 import SubmitPage from './Pages/SubmitPage'
