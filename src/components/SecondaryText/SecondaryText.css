@@ -5,6 +5,6 @@
   font-size: 18px;
   line-height: 22px;
   text-decoration-line: underline;
-  color: #fe3b1f;
+  color: var(--rocket);
   margin-bottom: 20px;
 }

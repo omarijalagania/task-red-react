@@ -5,7 +5,7 @@
 }
 
 .skill__button {
-  background-color: #fe3b1f;
+  background-color: var(--rocket);
   color: white;
   font-family: 'Montserrat';
   width: 170px;

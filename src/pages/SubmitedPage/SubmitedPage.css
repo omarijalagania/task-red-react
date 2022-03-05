@@ -4,12 +4,12 @@
 }
 
 .submited__btn {
-  background-color: #fe3b1f;
+  background-color: var(--rocket);
   color: white;
   font-family: 'Rowdies';
   font-size: 20px;
   font-weight: lighter;
-  border: 2px solid #fe3b1f;
+  border: 2px solid var(--rocket);
   padding: 10px 50px;
   margin: 20px 0;
   border-radius: 50px;
@@ -30,6 +30,14 @@
 }
 
 /* Media queries */
+
+@media (max-width: 480px) {
+  .submited__text {
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+  }
+}
 
 @media (max-width: 280px) {
   .submited__text {

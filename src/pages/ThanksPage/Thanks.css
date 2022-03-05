@@ -12,5 +12,5 @@
   font-weight: normal;
   font-size: 76px;
   line-height: 119px;
-  color: #fe3b1f;
+  color: var(--rocket);
 }

@@ -16,7 +16,7 @@
 }
 
 .home__headText {
-  color: #fe3b1f;
+  color: var(--rocket);
   font-family: 'Rowdies';
   font-weight: 400;
   font-size: 80px;
@@ -26,11 +26,11 @@
 }
 
 .home__button {
-  background-color: #fe3b1f;
+  background-color: var(--rocket);
   color: white;
   font-family: 'Montserrat';
   font-size: 20px;
-  border: 2px solid #fe3b1f;
+  border: 2px solid var(--rocket);
   padding: 10px 50px;
   margin-top: 20px;
   border-radius: 50px;

@@ -12,7 +12,7 @@
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background-color: #fe3b1f;
+  background-color: var(--rocket);
   cursor: pointer;
   opacity: 0.3;
 }

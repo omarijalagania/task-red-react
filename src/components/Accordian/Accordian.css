@@ -9,17 +9,24 @@
 
 .accordian__item {
   background-color: white;
-  width: 91%;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.accordian__box__header {
+  display: flex;
+  width: 85%;
+  justify-content: space-between;
+  align-items: center;
   margin: 0 auto;
 }
 
 .accordian__box {
   max-width: 80%;
   height: 50px;
-  background-color: #fe3b1f;
+  background-color: var(--rocket);
   display: flex;
   justify-content: space-between;
-  padding: 0 50px;
   margin: 0 auto;
 
   align-items: center;
@@ -73,7 +80,6 @@ span {
 }
 
 .accordian__subTitle {
-  font-family: 'Montserrat';
   font-style: normal;
   font-weight: normal;
   font-size: 18px;
@@ -81,16 +87,51 @@ span {
   margin-bottom: 30px;
 }
 
-@media (max-width: 686px) {
+/* queries */
+
+@media (max-width: 840px) {
   .accordian__info__box {
     flex-direction: column;
     align-items: center;
   }
+  .accordian__info__box {
+    width: 100%;
+  }
+  .accordian__item {
+    max-width: 100%;
+  }
+  .accordian__box__header {
+    width: 90%;
+  }
+  .vaccine {
+    margin-left: 30% !important;
+  }
+  .accordian__box {
+    max-width: 100% !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .vaccine {
+    margin-left: 13% !important;
+  }
+}
+
+@media (max-width: 340px) {
   .accordian__item {
     width: 100%;
   }
+  .accordian {
+    width: 95% !important;
+  }
   .vaccine {
     margin-left: 20% !important;
+  }
+  .accordian__box__header {
+    width: 90%;
+  }
+  .accordian__box {
+    max-width: 100% !important;
   }
 }
 
@@ -105,6 +146,12 @@ span {
     margin-left: 8% !important;
   }
   .accordian {
-    min-width: 100%;
+    max-width: 100%;
+  }
+  .accordian__box__header {
+    width: 90%;
+  }
+  .accordian__box {
+    max-width: 100% !important;
   }
 }
