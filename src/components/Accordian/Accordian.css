@@ -87,6 +87,16 @@ span {
   margin-bottom: 30px;
 }
 
+.submited__text {
+  font-family: 'Rowdies';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 50px;
+  line-height: 70px;
+  color: white;
+  text-align: left;
+}
+
 /* queries */
 
 @media (max-width: 840px) {

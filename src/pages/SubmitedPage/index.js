@@ -31,9 +31,13 @@ const SubmitedPage = () => {
     <div className='submited'>
       <div
         style={{
-          maxWidth: '73%',
-          margin: '0 auto',
+          display: 'flex',
+          textAlign: 'left',
           padding: '25px 0',
+          maxWidth: '65%',
+          margin: '0 auto',
+          justifyContent: 'flex-start',
+          display: 'flex',
         }}
       >
         <HeadText text='Submitted Applications' className='submited__text' />
