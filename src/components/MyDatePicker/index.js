@@ -4,7 +4,13 @@ import DatePicker from 'react-datepicker'
 import './DatePicker.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
-const MyDatePicker = ({ personalData, setPersonalData, when }) => {
+const MyDatePicker = ({
+  personalData,
+  setPersonalData,
+  when,
+  setLocalHadCovidAt,
+  setLocalHadVaccinationAt,
+}) => {
   const [startDate, setStartDate] = useState(new Date())
   return (
     <div className='datePicker'>
@@ -16,13 +22,17 @@ const MyDatePicker = ({ personalData, setPersonalData, when }) => {
           if (when === 'when_covid') {
             setPersonalData({
               ...personalData,
-              hadCovidAt: moment(date).utc().local().format('YYYY-MM-DD'),
+              hadCovidAt: setLocalHadCovidAt(
+                moment(date).utc().local().format('YYYY-MM-DD'),
+              ),
             })
             setStartDate(date)
           } else if (when === 'when_vaccination') {
             setPersonalData({
               ...personalData,
-              hadVaccinationAt: moment(date).utc().local().format('YYYY-MM-DD'),
+              hadVaccinationAt: setLocalHadVaccinationAt(
+                moment(date).utc().local().format('YYYY-MM-DD'),
+              ),
             })
             setStartDate(date)
           }

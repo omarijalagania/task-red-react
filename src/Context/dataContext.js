@@ -1,4 +1,5 @@
 import React, { createContext, useState } from 'react'
+
 import env from 'react-dotenv'
 export const DataContext = createContext()
 
@@ -15,10 +16,11 @@ export const DataProvider = ({ children }) => {
     hadCovidAt: '',
     hadVaccination: false,
     hadVaccinationAt: '',
-    willOrganizeDevTalk: true,
+    willOrganizeDevTalk: false,
     DevTalkTopic: '',
     somethingSpecial: '',
   })
+
   return (
     <DataContext.Provider value={[personalData, setPersonalData]}>
       {children}

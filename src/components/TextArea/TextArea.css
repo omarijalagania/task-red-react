@@ -6,6 +6,13 @@
 
 /* Media query for mobile devices */
 
+@media (max-width: 1080px) {
+  .textArea {
+    width: 85%;
+    margin: 0 auto;
+  }
+}
+
 @media (max-width: 480px) {
   .textArea {
     width: 85%;

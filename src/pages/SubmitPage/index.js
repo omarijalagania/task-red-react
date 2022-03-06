@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import env from 'react-dotenv'
 import { pageTransition } from '../../utils/animation'
@@ -14,6 +14,55 @@ const SubmitPage = () => {
   const [data, setData] = useState([])
 
   const navigate = useNavigate()
+
+  console.log(personalData)
+
+  useEffect(() => {
+    setPesonalData({
+      ...personalData,
+      name: JSON.parse(localStorage.getItem('user'))
+        ? JSON.parse(localStorage.getItem('user'))
+        : '',
+      lastName: JSON.parse(localStorage.getItem('lastName'))
+        ? JSON.parse(localStorage.getItem('lastName'))
+        : '',
+      email: JSON.parse(localStorage.getItem('email'))
+        ? JSON.parse(localStorage.getItem('email'))
+        : '',
+      phone: JSON.parse(localStorage.getItem('phone'))
+        ? JSON.parse(localStorage.getItem('phone'))
+        : '',
+      skills: JSON.parse(localStorage.getItem('skills'))
+        ? JSON.parse(localStorage.getItem('skills'))
+        : '',
+      workPreferences: JSON.parse(localStorage.getItem('workPreferences'))
+        ? JSON.parse(localStorage.getItem('workPreferences'))
+        : '',
+      hadCovid: JSON.parse(localStorage.getItem('hadCovid'))
+        ? JSON.parse(localStorage.getItem('workPreferences'))
+        : personalData?.hadCovid,
+      hadCovidAt: JSON.parse(localStorage.getItem('hadCovidAt'))
+        ? JSON.parse(localStorage.getItem('hadCovidAt'))
+        : '',
+      hadVaccination: JSON.parse(localStorage.getItem('localHadVaccination'))
+        ? JSON.parse(localStorage.getItem('localHadVaccination'))
+        : personalData?.hadVaccination,
+      hadVaccinationAt: JSON.parse(localStorage.getItem('hadVaccinationAt'))
+        ? JSON.parse(localStorage.getItem('hadVaccinationAt'))
+        : '',
+      willOrganizeDevTalk: JSON.parse(
+        localStorage.getItem('willOrganizeDevTalk'),
+      )
+        ? JSON.parse(localStorage.getItem('willOrganizeDevTalk'))
+        : personalData?.willOrganizeDevTalk,
+      DevTalkTopic: JSON.parse(localStorage.getItem('DevTalkTopic'))
+        ? JSON.parse(localStorage.getItem('DevTalkTopic'))
+        : '',
+      somethingSpecial: JSON.parse(localStorage.getItem('somethingSpecial'))
+        ? JSON.parse(localStorage.getItem('somethingSpecial'))
+        : '',
+    })
+  }, [])
 
   const bodySubmit = {
     token: personalData.token,
@@ -60,11 +109,11 @@ const SubmitPage = () => {
           hadCovidAt: '',
           hadVaccination: false,
           hadVaccinationAt: '',
-          willOrganizeDevTalk: true,
+          willOrganizeDevTalk: false,
           DevTalkTopic: '',
           somethingSpecial: '',
         })
-
+        localStorage.clear()
         navigate('/thanks')
       } catch (error) {
         alert('Error')

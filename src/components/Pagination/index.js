@@ -50,19 +50,19 @@ const Pagination = () => {
       id: 1,
       path: '/personal',
       isValid:
-        personalData.name.length > 2 &&
-        personalData.lastName.length > 2 &&
-        regEmail.test(personalData.email) &&
+        personalData?.name.length > 2 &&
+        personalData?.lastName.length > 2 &&
+        regEmail.test(personalData?.email) &&
         isPossiblePhoneNumber(String(personalData?.phone)),
-      active: personalData.name.length !== 0,
+      active: personalData?.name.length !== 0,
     },
     {
       id: 2,
       path: '/skills',
       isValid:
-        personalData.name.length > 2 &&
-        personalData.lastName.length > 2 &&
-        regEmail.test(personalData.email) &&
+        personalData?.name.length > 2 &&
+        personalData?.lastName.length > 2 &&
+        regEmail.test(personalData?.email) &&
         isPossiblePhoneNumber(String(personalData?.phone)),
       active: personalData?.skills.length !== 0,
     },

@@ -7,8 +7,10 @@ const TextArea = (props) => {
       onChange={props.onChange}
       className={props.className}
       rows={props.rows}
+      value={props.value}
       cols='50'
       placeholder={props.placeholder}
+      defaultValue={props.defaultValue}
     ></textarea>
   )
 }

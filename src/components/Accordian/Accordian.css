@@ -81,7 +81,7 @@ span {
 
 .accordian__subTitle {
   font-style: normal;
-  font-weight: normal;
+  font-weight: lighter;
   font-size: 18px;
   line-height: 22px;
   margin-bottom: 30px;
@@ -98,6 +98,12 @@ span {
 }
 
 /* queries */
+
+@media (max-width: 1200px) {
+  .vaccine {
+    margin-left: 9% !important;
+  }
+}
 
 @media (max-width: 840px) {
   .accordian__info__box {

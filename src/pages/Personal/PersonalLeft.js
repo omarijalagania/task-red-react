@@ -1,4 +1,5 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useContext, useEffect } from 'react'
+import useLocalStorage from 'use-local-storage'
 import Errors from '../../components/Errors'
 import HeadText from '../../components/HeadText'
 import TextField from '../../components/TextField'
@@ -10,17 +11,22 @@ import './Page.css'
 
 const PersonalLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
-  const [mobileValue, setMobileValue] = useState('')
+  const [user, setUser] = useLocalStorage('user', '')
+  const [lastName, setLastName] = useLocalStorage('lastName', '')
+  const [email, setEmail] = useLocalStorage('email', '')
+  const [phone, setPhone] = useLocalStorage('phone', '')
 
-  //validate phone number
-  let validNum = isPossiblePhoneNumber(String(mobileValue))
+  //get info from local storage
 
-  //add number to store if it is valid
   useEffect(() => {
-    if (validNum) {
-      setPersonalData({ ...personalData, phone: String(mobileValue) })
-    }
-  }, [mobileValue])
+    setPersonalData({
+      ...personalData,
+      name: user,
+      lastName: lastName,
+      email: email,
+      phone: String(phone),
+    })
+  }, [user, lastName, email, phone])
 
   return (
     <div
@@ -36,7 +42,7 @@ const PersonalLeft = () => {
         className='page__heading'
       />
 
-      {personalData?.name.length < 2 ? (
+      {user?.length < 2 ? (
         <Errors message='Name Must be at least 2 symbols' />
       ) : (
         ''
@@ -46,15 +52,13 @@ const PersonalLeft = () => {
         className='page__textField'
         required={true}
         placeholder='First Name'
-        value={personalData.name}
-        onChange={(e) =>
-          setPersonalData({ ...personalData, name: e.target.value })
-        }
+        value={user}
+        onChange={(e) => setUser(e.target.value)}
         type='text'
         width='280px'
       />
 
-      {personalData?.lastName.length < 2 ? (
+      {user?.length < 2 ? (
         <Errors message='Lastname Must be at least 2 symbols' />
       ) : (
         ''
@@ -63,31 +67,24 @@ const PersonalLeft = () => {
         className='page__textField'
         required={true}
         placeholder='Last Name'
-        value={personalData.lastName}
-        onChange={(e) =>
-          setPersonalData({ ...personalData, lastName: e.target.value })
-        }
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
         type='text'
         width='280px'
       />
 
-      {!regEmail.test(personalData?.email) ? (
-        <Errors message='Email is incorect' />
-      ) : (
-        ''
-      )}
+      {!regEmail.test(email) ? <Errors message='Email is incorect' /> : ''}
       <TextField
         className='page__textField'
         required={true}
+        value={email}
         placeholder='Email'
-        onChange={(e) =>
-          setPersonalData({ ...personalData, email: e.target.value })
-        }
+        onChange={(e) => setEmail(e.target.value)}
         type='email'
         width='280px'
       />
 
-      {isPossiblePhoneNumber(String(mobileValue)) ? (
+      {isPossiblePhoneNumber(String(phone)) ? (
         ''
       ) : (
         <Errors message='Phone is incorrect' />
@@ -95,8 +92,8 @@ const PersonalLeft = () => {
       <PhoneInput
         placeholder='+995_ _ _ _'
         defaultCountry='GE'
-        value={mobileValue}
-        onChange={setMobileValue}
+        value={phone}
+        onChange={setPhone}
       />
     </div>
   )

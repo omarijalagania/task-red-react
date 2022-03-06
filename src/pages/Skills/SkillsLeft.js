@@ -8,12 +8,39 @@ import SkillBox from '../../components/SkillBox'
 import { useAxios } from '../../hooks/useAxios'
 import { DataContext } from '../../Context/dataContext'
 import Errors from '../../components/Errors'
+import useLocalStorage from 'use-local-storage'
 
 const SkillsLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
   const [chosenSkill, setChosenSkill] = useState('HTML')
   const [expirienceYears, setExpirienceYears] = useState('')
+
+  const [localSkills, setLocalSkills] = useLocalStorage('skills', [])
+  const [localYear, setLocalYear] = useLocalStorage('year', '')
+  const [localChosenSkill, setLocalChosenSkill] = useLocalStorage(
+    'skill',
+    'HTML',
+  )
+
+  useEffect(() => {
+    setPersonalData({
+      ...personalData,
+      name: JSON.parse(localStorage.getItem('user'))
+        ? JSON.parse(localStorage.getItem('user'))
+        : '',
+      lastName: JSON.parse(localStorage.getItem('lastName'))
+        ? JSON.parse(localStorage.getItem('lastName'))
+        : '',
+      email: JSON.parse(localStorage.getItem('email'))
+        ? JSON.parse(localStorage.getItem('email'))
+        : '',
+      phone: JSON.parse(localStorage.getItem('phone'))
+        ? JSON.parse(localStorage.getItem('phone'))
+        : '',
+      skills: localSkills,
+    })
+  }, [])
 
   //get skills from api with custom hook
   const { response } = useAxios({
@@ -27,46 +54,53 @@ const SkillsLeft = () => {
   }, [response])
 
   //not to add duplicates to skills array
-  const duplicate = personalData?.skills.some(
-    (item) => item.title === chosenSkill,
-  )
+  const duplicate = localSkills?.some((item) => item.title === localChosenSkill)
 
   //extract ids from skills array
-  const skillId = data?.find((item) => item.title === chosenSkill)?.id
+  const skillId = data?.find((item) => item.title === localChosenSkill)?.id
 
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
-    if (chosenSkill !== '' && !duplicate && expirienceYears !== '') {
+    if (localChosenSkill !== '' && !duplicate && localYear !== '') {
       setPersonalData({
         ...personalData,
         skills: [
-          ...personalData.skills,
+          ...localSkills,
           {
             id: skillId,
-            experience: JSON.parse(expirienceYears),
+            experience: JSON.parse(localYear),
           },
         ],
       })
+      setLocalSkills([
+        ...personalData.skills,
+        {
+          id: skillId,
+          experience: JSON.parse(localYear),
+        },
+      ])
     }
   }
+
+  console.log(personalData)
 
   //remove skill from personalData.skills
 
   const removeSkillHandler = (id) => {
     setPersonalData({
       ...personalData,
-      skills: personalData.skills.filter((skill) => skill.id !== id),
+      skills: localSkills?.filter((skill) => skill.id !== id),
     })
+    setLocalSkills(localSkills?.filter((skill) => skill.id !== id))
   }
 
   //get skills titles by id to show it on screen :)
   const skillsWithTitle = data?.filter((skill1) =>
-    personalData?.skills.some((skill2) => skill1.id === skill2.id),
+    localSkills?.some((skill2) => skill1.id === skill2.id),
   )
 
   let skillArrWithExperience = skillsWithTitle?.map((skill) => {
-    let expt = personalData?.skills.filter((exp) => exp.id === skill.id)[0]
-      .experience
+    let expt = localSkills?.filter((exp) => exp.id === skill.id)[0].experience
     let obj = {
       id: skill.id,
       title: skill.title,
@@ -78,13 +112,17 @@ const SkillsLeft = () => {
   return (
     <div style={{ display: 'flex' }} className='skills__container'>
       <HeadText text='Tell us about your skills' className='page__heading' />
-      <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
+      <Select
+        onChange={(e) => setLocalChosenSkill(e.target.value)}
+        data={data}
+      />
       <TextField
-        onChange={(e) => setExpirienceYears(e.target.value)}
+        onChange={(e) => setLocalYear(e.target.value)}
         className='textField skills__textField'
         placeholder='Experience Duration in Years'
         type='number'
         width='287px'
+        value={localYear}
       />
       <div
         style={{

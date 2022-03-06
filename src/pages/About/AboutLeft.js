@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
+import useLocalStorage from 'use-local-storage'
 import HeadText from '../../components/HeadText'
 import TextField from '../../components/TextField'
 import { DataContext } from '../../Context/dataContext'
@@ -10,6 +11,61 @@ import Errors from '../../components/Errors'
 
 const AboutLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
+
+  const [localWillOrganizeDevTalk, setLocalWillOrganizeDevTalk] =
+    useLocalStorage('willOrganizeDevTalk', '')
+  const [localDevTalkTopic, setLocalDevTalkTopic] = useLocalStorage(
+    'DevTalkTopic',
+    '',
+  )
+  const [localSomethingSpecial, setLocalSomethingSpecial] = useLocalStorage(
+    'somethingSpecial',
+    '',
+  )
+
+  useEffect(() => {
+    setPersonalData({
+      ...personalData,
+      name: JSON.parse(localStorage.getItem('user'))
+        ? JSON.parse(localStorage.getItem('user'))
+        : '',
+      lastName: JSON.parse(localStorage.getItem('lastName'))
+        ? JSON.parse(localStorage.getItem('lastName'))
+        : '',
+      email: JSON.parse(localStorage.getItem('email'))
+        ? JSON.parse(localStorage.getItem('email'))
+        : '',
+      phone: JSON.parse(localStorage.getItem('phone'))
+        ? JSON.parse(localStorage.getItem('phone'))
+        : '',
+      skills: JSON.parse(localStorage.getItem('skills'))
+        ? JSON.parse(localStorage.getItem('skills'))
+        : '',
+      workPreferences: JSON.parse(localStorage.getItem('workPreferences'))
+        ? JSON.parse(localStorage.getItem('workPreferences'))
+        : '',
+      hadCovid: JSON.parse(localStorage.getItem('hadCovid'))
+        ? JSON.parse(localStorage.getItem('workPreferences'))
+        : personalData?.hadCovid,
+      hadCovidAt: JSON.parse(localStorage.getItem('hadCovidAt'))
+        ? JSON.parse(localStorage.getItem('hadCovidAt'))
+        : '',
+      hadVaccination: JSON.parse(localStorage.getItem('localHadVaccination'))
+        ? JSON.parse(localStorage.getItem('localHadVaccination'))
+        : personalData?.hadVaccination,
+      hadVaccinationAt: JSON.parse(localStorage.getItem('hadVaccinationAt'))
+        ? JSON.parse(localStorage.getItem('hadVaccinationAt'))
+        : '',
+      willOrganizeDevTalk: localWillOrganizeDevTalk
+        ? JSON.parse(localWillOrganizeDevTalk)
+        : false,
+      DevTalkTopic: localDevTalkTopic ? localDevTalkTopic : '',
+      somethingSpecial: localSomethingSpecial ? localSomethingSpecial : '',
+    })
+  }, [localDevTalkTopic, localWillOrganizeDevTalk, localSomethingSpecial])
+
+  console.log(personalData)
+
   return (
     <>
       <HeadText text='Tell us about your skills' className='page__heading' />
@@ -32,14 +88,15 @@ const AboutLeft = () => {
               width='18px'
               type='radio'
               value={true}
-              onChange={(e) =>
+              onChange={(e) => {
                 setPersonalData({
                   ...personalData,
-                  willOrganizeDevTalk: JSON.parse(e.currentTarget.value),
+                  willOrganizeDevTalk: localWillOrganizeDevTalk,
                 })
-              }
+                setLocalWillOrganizeDevTalk(JSON.parse(e.currentTarget.value))
+              }}
               name='cheks'
-              checked={personalData?.willOrganizeDevTalk ? true : false}
+              checked={localWillOrganizeDevTalk ? true : false}
             />
             <div>Yes</div>
           </div>
@@ -57,13 +114,15 @@ const AboutLeft = () => {
               width='18px'
               type='radio'
               value={false}
-              onChange={(e) =>
+              onChange={(e) => {
                 setPersonalData({
                   ...personalData,
-                  willOrganizeDevTalk: JSON.parse(e.currentTarget.value),
+                  willOrganizeDevTalk: localWillOrganizeDevTalk,
                 })
-              }
+                setLocalWillOrganizeDevTalk(JSON.parse(e.currentTarget.value))
+              }}
               name='cheks'
+              checked={localWillOrganizeDevTalk ? false : true}
             />
             <div>No</div>
           </div>
@@ -72,20 +131,22 @@ const AboutLeft = () => {
       {/* Next question */}
       <div className='covid'>
         <p className='covid__text'>how would you prefer to work?</p>
-        {personalData?.DevTalkTopic.length < 10 ? (
+        {personalData.DevTalkTopic?.length < 10 ? (
           <Errors message='Please type at least 10 symbols' margin='10px' />
         ) : (
           <></>
         )}
         <TextArea
-          onChange={(e) =>
+          onChange={(e) => {
             setPersonalData({
               ...personalData,
-              DevTalkTopic: e.target.value,
+              DevTalkTopic: localDevTalkTopic,
             })
-          }
+            setLocalDevTalkTopic(e.target.value)
+          }}
           className='textArea'
           rows='6'
+          value={localDevTalkTopic}
           placeholder='i would...'
         />
       </div>
@@ -97,13 +158,15 @@ const AboutLeft = () => {
           <></>
         )}
         <TextArea
-          onChange={(e) =>
+          onChange={(e) => {
             setPersonalData({
               ...personalData,
-              somethingSpecial: e.target.value,
+              somethingSpecial: localSomethingSpecial,
             })
-          }
+            setLocalSomethingSpecial(e.target.value)
+          }}
           className='textArea'
+          value={localSomethingSpecial}
           rows='3'
           placeholder='i...'
         />
