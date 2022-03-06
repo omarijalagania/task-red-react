@@ -23,6 +23,7 @@ const AboutLeft = () => {
     '',
   )
 
+  //fill page with info from localStorage
   useEffect(() => {
     setPersonalData({
       ...personalData,
@@ -63,8 +64,6 @@ const AboutLeft = () => {
       somethingSpecial: localSomethingSpecial ? localSomethingSpecial : '',
     })
   }, [localDevTalkTopic, localWillOrganizeDevTalk, localSomethingSpecial])
-
-  console.log(personalData)
 
   return (
     <>

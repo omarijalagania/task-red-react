@@ -13,8 +13,6 @@ import useLocalStorage from 'use-local-storage'
 const SkillsLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
-  const [chosenSkill, setChosenSkill] = useState('HTML')
-  const [expirienceYears, setExpirienceYears] = useState('')
 
   const [localSkills, setLocalSkills] = useLocalStorage('skills', [])
   const [localYear, setLocalYear] = useLocalStorage('year', '')
@@ -81,8 +79,6 @@ const SkillsLeft = () => {
       ])
     }
   }
-
-  console.log(personalData)
 
   //remove skill from personalData.skills
 

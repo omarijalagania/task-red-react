@@ -15,8 +15,6 @@ const SubmitPage = () => {
 
   const navigate = useNavigate()
 
-  console.log(personalData)
-
   useEffect(() => {
     setPesonalData({
       ...personalData,
@@ -64,6 +62,7 @@ const SubmitPage = () => {
     })
   }, [])
 
+  //prepare data for sending to server
   const bodySubmit = {
     token: personalData.token,
     first_name: personalData.name,

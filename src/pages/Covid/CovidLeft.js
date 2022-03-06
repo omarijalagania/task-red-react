@@ -10,6 +10,8 @@ import Errors from '../../components/Errors'
 
 const CovidLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
+
+  //localStorage variables
   const [localWorkPreferences, setWorkLocalPrefrences] = useLocalStorage(
     'workPreferences',
     '',
@@ -28,8 +30,6 @@ const CovidLeft = () => {
     'hadVaccinationAt',
     '',
   )
-
-  console.log(personalData)
 
   useEffect(() => {
     setPersonalData({
