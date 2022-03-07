@@ -19,7 +19,8 @@ const MyDatePicker = ({
         className='datePicker__calendar'
         selected={startDate}
         placeholderText='Date'
-        onChange={(date) => {
+        onChange={(date, e) => {
+          e.preventDefault()
           if (when === 'when_covid') {
             setPersonalData({
               ...personalData,

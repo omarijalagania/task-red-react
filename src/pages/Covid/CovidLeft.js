@@ -35,6 +35,9 @@ const CovidLeft = () => {
   )
 
   useEffect(() => {
+    if (localHadCovid === false && localHadVaccinacion === false) {
+      setLocalHadCovidAt('')
+    }
     setPersonalData({
       ...personalData,
       name: JSON.parse(localStorage.getItem('user'))
