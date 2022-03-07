@@ -17,6 +17,7 @@
   top: 50%;
   right: 10px;
   transform: translate(0, -50%);
+  cursor: pointer;
 }
 
 @media (max-width: 280px) {

@@ -12,8 +12,9 @@ const MyDatePicker = ({
   setLocalHadVaccinationAt,
 }) => {
   const [startDate, setStartDate] = useState(new Date())
+
   return (
-    <div className='datePicker'>
+    <label className='datePicker'>
       <DatePicker
         className='datePicker__calendar'
         selected={startDate}
@@ -38,12 +39,13 @@ const MyDatePicker = ({
           }
         }}
       />
+
       <img
         className='datePicker__image'
         src='/images/calendar.png'
         alt='calendar'
       />
-    </div>
+    </label>
   )
 }
 

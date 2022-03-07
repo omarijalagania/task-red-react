@@ -16,7 +16,10 @@ const CovidLeft = () => {
     'workPreferences',
     '',
   )
-  const [localHadCovid, setLocalHadCovid] = useLocalStorage('localHadCovid', '')
+  const [localHadCovid, setLocalHadCovid] = useLocalStorage(
+    'localHadCovid',
+    false,
+  )
   const [localHadCovidAt, setLocalHadCovidAt] = useLocalStorage(
     'hadCovidAt',
     '',
@@ -202,7 +205,7 @@ const CovidLeft = () => {
               className='covid__textField'
               width='18px'
               type='radio'
-              checked={localHadCovid === false ? true : false}
+              checked={personalData?.hadCovid === false ? true : false}
               value={false}
               name='cheks'
             />
@@ -288,7 +291,7 @@ const CovidLeft = () => {
               width='18px'
               type='radio'
               value='false'
-              checked={localHadVaccinacion === false ? true : false}
+              checked={personalData?.hadVaccination === false ? true : false}
               name='cheks3'
             />
             <div>No</div>

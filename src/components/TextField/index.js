@@ -10,6 +10,7 @@ const TextField = (props) => {
         type={props.type}
         value={props.value}
         name={props.name}
+        defaultChecked={props.defaultChecked}
         placeholder={props.placeholder}
         required={props.required}
         multiple={props.size}
