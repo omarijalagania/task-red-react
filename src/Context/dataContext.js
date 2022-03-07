@@ -16,7 +16,7 @@ export const DataProvider = ({ children }) => {
     hadCovidAt: '',
     hadVaccination: false,
     hadVaccinationAt: '',
-    willOrganizeDevTalk: false,
+    willOrganizeDevTalk: true,
     DevTalkTopic: '',
     somethingSpecial: '',
   })

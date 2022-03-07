@@ -45,6 +45,30 @@ const Pagination = () => {
       return true
     }
   }
+
+  //from about to submit validation
+  const isTrueAbout = () => {
+    if (personalData?.willOrganizeDevTalk === true) {
+      if (
+        personalData?.DevTalkTopic === '' &&
+        personalData?.somethingSpecial === ''
+      ) {
+        return false
+      } else if (
+        personalData?.DevTalkTopic.length !== '' &&
+        personalData?.somethingSpecial !== ''
+      ) {
+        return true
+      } else {
+        return false
+      }
+    } else if (personalData?.willOrganizeDevTalk === false) {
+      return true
+    } else {
+      return false
+    }
+  }
+
   const pages = [
     {
       id: 1,
@@ -81,12 +105,7 @@ const Pagination = () => {
     {
       id: 5,
       path: '/submit',
-      isValid:
-        personalData?.DevTalkTopic.length < 10
-          ? false
-          : true && personalData?.somethingSpecial.length < 10
-          ? false
-          : true,
+      isValid: isTrueAbout(),
     },
   ]
 
