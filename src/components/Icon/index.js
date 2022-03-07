@@ -3,6 +3,7 @@ import React from 'react'
 const Icon = (props) => {
   return (
     <div
+      className={props.className}
       style={{
         cursor: 'pointer',
       }}

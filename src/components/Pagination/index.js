@@ -123,9 +123,9 @@ const Pagination = () => {
 
   return (
     <div className='pagination'>
-      <Icon onClick={handleBack} name='right' />
+      <Icon className='pagination__icon' onClick={handleBack} name='right' />
       {navCircles()}
-      <Icon onClick={handleForwart} name='left' />
+      <Icon className='pagination__icon' onClick={handleForwart} name='left' />
     </div>
   )
 }

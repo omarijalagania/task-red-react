@@ -15,8 +15,22 @@
   background-color: var(--rocket);
   cursor: pointer;
   opacity: 0.3;
+  transition: all 0.3s ease;
 }
 
 .active {
   opacity: 1;
+}
+
+.pagination__circle:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+.pagination__icon {
+  transition: all 0.3s ease;
+}
+
+.pagination__icon:hover {
+  transform: scale(1.2);
 }
