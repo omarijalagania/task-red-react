@@ -29,7 +29,7 @@ const AccordianLeft = ({ item }) => {
             }}
           >
             <p>Last Name</p>
-            <p>{item.first_name}</p>
+            <p>{item.last_name}</p>
           </div>
           <div
             style={{

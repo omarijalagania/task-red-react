@@ -7,7 +7,7 @@ window.env = {
   "npm_config_only": "",
   "npm_config_commit_hooks": "true",
   "npm_config_browser": "",
-  "npm_package_gitHead": "cb36e4b0bfe685c9d455e2c2aa1909a9d3550e0e",
+  "npm_package_gitHead": "ebf1bbddfd18ba3907c3bcb4834db5f483e45244",
   "npm_config_also": "",
   "npm_config_sign_git_commit": "",
   "npm_config_rollback": "true",
@@ -195,6 +195,6 @@ window.env = {
   "npm_config_link": "",
   "npm_config_format_package_lock": "true",
   "COLORTERM": "truecolor",
-  "REACT_APP_TOKEN": "85818bab-4e57-4aa3-b807-f9dbaca1bd37",
+  "REACT_APP_TOKEN": "12292c0d-127f-4c15-9115-5d7ab06a839a",
   "REACT_APP_BASE_URL": "https://bootcamp-2022.devtest.ge/api"
 };
