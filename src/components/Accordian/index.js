@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { useAxios } from '../../hooks/useAxios'
+import { motion } from 'framer-motion'
 import { ChevronDownOutline, ChevronUpOutline } from 'react-ionicons'
+import { pageTransition } from '../../utils/animation'
 import './Accordian.css'
 import AccordianLeft from './AccordianLeft'
 import AccordianRight from './AccordianRight'
-import Loader from '../Loader'
 
 const Accordian = ({ index, item }) => {
   const [active, setActive] = useState(false)
@@ -39,10 +40,16 @@ const Accordian = ({ index, item }) => {
         </div>
       </div>
       {active && (
-        <div className='accordian__item'>
+        <motion.div
+          initial='out'
+          animate='in'
+          exit='out'
+          variants={pageTransition}
+          className='accordian__item'
+        >
           <AccordianLeft item={item} />
           <AccordianRight item={item} skillTitles={skillTitles} />
-        </div>
+        </motion.div>
       )}
     </div>
   )
