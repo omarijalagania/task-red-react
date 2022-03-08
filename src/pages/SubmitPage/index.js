@@ -71,6 +71,7 @@ const SubmitPage = () => {
     token: personalData.token,
     first_name: personalData.name,
     last_name: personalData.lastName,
+    phone: personalData.phone,
     email: personalData.email,
     skills: personalData.skills,
     work_preference: personalData.workPreferences,
