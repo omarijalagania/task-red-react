@@ -119,7 +119,7 @@ const SubmitPage = () => {
         localStorage.clear()
         navigate('/thanks')
       } catch (error) {
-        alert('Error')
+        alert(error.message)
       }
     } else {
       alert('Really? Please fill all fields')

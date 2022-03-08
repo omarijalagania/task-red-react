@@ -77,14 +77,14 @@ const Pagination = () => {
       id: 4,
       path: '/about',
       isValid: personalData?.workPreferences !== '' && isTrue(),
-      active: personalData?.DevTalkTopic.length > 10,
+      active: personalData?.DevTalkTopic !== '',
     },
     {
       id: 5,
       path: '/submit',
       isValid:
-        personalData?.DevTalkTopic.length !== '' &&
-        personalData?.somethingSpecial.length !== '' &&
+        personalData?.DevTalkTopic !== '' &&
+        personalData?.somethingSpecial !== '' &&
         personalData?.willOrganizeDevTalk === true,
     },
   ]

@@ -17,10 +17,10 @@ const SkillsLeft = () => {
 
   const [localSkills, setLocalSkills] = useLocalStorage('skills', [])
   const [localYear, setLocalYear] = useLocalStorage('year', '')
-  // const [localChosenSkill, setLocalChosenSkill] = useLocalStorage(
-  //   'skill',
-  //   'HTML',
-  // )
+  const [localChosenSkill, setLocalChosenSkill] = useLocalStorage(
+    'skill',
+    chosenSkill,
+  )
 
   useEffect(() => {
     setPersonalData({
@@ -52,15 +52,39 @@ const SkillsLeft = () => {
     }
   }, [response])
 
+  //get skills titles by id to show it on screen :)
+  const skillsWithTitle = data?.filter((skill1) =>
+    localSkills?.some((skill2) => skill1.id === skill2.id),
+  )
+
+  let skillArrWithExperience = skillsWithTitle?.map((skill) => {
+    let expt = localSkills?.filter((exp) => exp.id === skill.id)[0].experience
+    let obj = {
+      id: skill.id,
+      title: skill.title,
+      experience: expt,
+    }
+    return obj
+  })
+
   //not to add duplicates to skills array
-  const duplicate = localSkills?.some((item) => item.title === chosenSkill)
+  const duplicate = skillArrWithExperience?.some(
+    (item) => item.title === localChosenSkill,
+  )
 
   //extract ids from skills array
-  const skillId = data?.find((item) => item.title === chosenSkill)?.id
+  const skillId = data?.find((item) => item.title === localChosenSkill)?.id
+
+  console.log(localSkills)
 
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
-    if (chosenSkill !== '' && !duplicate && localYear !== '') {
+    if (
+      localChosenSkill &&
+      chosenSkill !== '' &&
+      !duplicate &&
+      localYear !== ''
+    ) {
       setPersonalData({
         ...personalData,
         skills: [
@@ -91,25 +115,16 @@ const SkillsLeft = () => {
     setLocalSkills(localSkills?.filter((skill) => skill.id !== id))
   }
 
-  //get skills titles by id to show it on screen :)
-  const skillsWithTitle = data?.filter((skill1) =>
-    localSkills?.some((skill2) => skill1.id === skill2.id),
-  )
-
-  let skillArrWithExperience = skillsWithTitle?.map((skill) => {
-    let expt = localSkills?.filter((exp) => exp.id === skill.id)[0].experience
-    let obj = {
-      id: skill.id,
-      title: skill.title,
-      experience: expt,
-    }
-    return obj
-  })
-
   return (
     <div style={{ display: 'flex' }} className='skills__container'>
       <HeadText text='Tell us about your skills' className='page__heading' />
-      <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
+      <Select
+        onChange={(e) => {
+          setChosenSkill(e.target.value)
+          setLocalChosenSkill(e.target.value)
+        }}
+        data={data}
+      />
       <TextField
         onChange={(e) => setLocalYear(e.target.value)}
         className='textField skills__textField'
