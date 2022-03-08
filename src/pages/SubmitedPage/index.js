@@ -24,8 +24,6 @@ const SubmitedPage = () => {
     return <Loader />
   }
 
-  console.log(data)
-
   return (
     <div className='submited'>
       <div

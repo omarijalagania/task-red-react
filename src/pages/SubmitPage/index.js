@@ -15,6 +15,7 @@ const SubmitPage = () => {
 
   const navigate = useNavigate()
 
+  //get data from local storage
   useEffect(() => {
     setPesonalData({
       ...personalData,
@@ -62,6 +63,7 @@ const SubmitPage = () => {
     })
   }, [])
 
+  //delete propeties if they are empty
   if (personalData.hadCovidAt === '' || personalData.hadVaccinationAt === '') {
     delete personalData.hadCovidAt && delete personalData.hadVaccinationAt
   }
