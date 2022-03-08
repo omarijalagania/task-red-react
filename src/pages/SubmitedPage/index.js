@@ -24,9 +24,6 @@ const SubmitedPage = () => {
     return <Loader />
   }
 
-  // :)
-  const withoutEmptySkills = data?.filter((item) => item.skills.length > 0)
-
   return (
     <div className='submited'>
       <div
@@ -42,7 +39,7 @@ const SubmitedPage = () => {
       >
         <HeadText text='Submitted Applications' className='submited__text' />
       </div>
-      {withoutEmptySkills?.map((item, index) => (
+      {data?.map((item, index) => (
         <Accordian key={Math.random(2) * 21} index={index} item={item} />
       ))}
       <Button

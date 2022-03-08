@@ -62,13 +62,16 @@ const SubmitPage = () => {
     })
   }, [])
 
+  if (personalData.hadCovidAt === '' || personalData.hadVaccinationAt === '') {
+    delete personalData.hadCovidAt && delete personalData.hadVaccinationAt
+  }
+
   //prepare data for sending to server
   const bodySubmit = {
     token: personalData.token,
     first_name: personalData.name,
     last_name: personalData.lastName,
     email: personalData.email,
-    phone: personalData.phone,
     skills: personalData.skills,
     work_preference: personalData.workPreferences,
     had_covid: personalData.hadCovid,
@@ -86,10 +89,11 @@ const SubmitPage = () => {
       personalData.lastName !== '' &&
       personalData.email !== '' &&
       personalData.phone !== '' &&
-      personalData.skills !== '' &&
+      personalData.skills.length !== 0 &&
       personalData.workPreferences !== '' &&
       personalData.willOrganizeDevTalk !== '' &&
-      personalData.somethingSpecial !== ''
+      personalData.somethingSpecial !== '' &&
+      personalData.DevTalkTopic !== ''
     ) {
       try {
         const response = await axios.post('/application', bodySubmit)
@@ -108,7 +112,7 @@ const SubmitPage = () => {
           hadCovidAt: '',
           hadVaccination: false,
           hadVaccinationAt: '',
-          willOrganizeDevTalk: false,
+          willOrganizeDevTalk: true,
           DevTalkTopic: '',
           somethingSpecial: '',
         })

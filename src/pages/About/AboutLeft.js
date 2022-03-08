@@ -128,53 +128,51 @@ const AboutLeft = () => {
         </div>
       </div>
       {/* Next question */}
-      {localWillOrganizeDevTalk && (
-        <div className='covid'>
-          <p className='covid__text'>how would you prefer to work?</p>
-          {personalData.DevTalkTopic?.length < 1 ? (
-            <Errors message='Please fill the field' margin='10px' />
-          ) : (
-            <></>
-          )}
 
-          <TextArea
-            onChange={(e) => {
-              setPersonalData({
-                ...personalData,
-                DevTalkTopic: localDevTalkTopic,
-              })
-              setLocalDevTalkTopic(e.target.value)
-            }}
-            className='textArea'
-            rows='6'
-            value={localDevTalkTopic}
-            placeholder='i would...'
-          />
-        </div>
-      )}
-      {localWillOrganizeDevTalk && (
-        <div className='covid'>
-          <p className='covid__text'>Tell us something special</p>
-          {personalData?.somethingSpecial.length < 1 ? (
-            <Errors message='Please fill the field' margin='10px' />
-          ) : (
-            <></>
-          )}
-          <TextArea
-            onChange={(e) => {
-              setPersonalData({
-                ...personalData,
-                somethingSpecial: localSomethingSpecial,
-              })
-              setLocalSomethingSpecial(e.target.value)
-            }}
-            className='textArea'
-            value={localSomethingSpecial}
-            rows='3'
-            placeholder='i...'
-          />
-        </div>
-      )}
+      <div className='covid'>
+        <p className='covid__text'>how would you prefer to work?</p>
+        {personalData.DevTalkTopic?.length < 1 ? (
+          <Errors message='Please fill the field' margin='10px' />
+        ) : (
+          <></>
+        )}
+
+        <TextArea
+          onChange={(e) => {
+            setPersonalData({
+              ...personalData,
+              DevTalkTopic: localDevTalkTopic,
+            })
+            setLocalDevTalkTopic(e.target.value)
+          }}
+          className='textArea'
+          rows='6'
+          value={localDevTalkTopic}
+          placeholder='i would...'
+        />
+      </div>
+
+      <div className='covid'>
+        <p className='covid__text'>Tell us something special</p>
+        {personalData?.somethingSpecial.length < 1 ? (
+          <Errors message='Please fill the field' margin='10px' />
+        ) : (
+          <></>
+        )}
+        <TextArea
+          onChange={(e) => {
+            setPersonalData({
+              ...personalData,
+              somethingSpecial: localSomethingSpecial,
+            })
+            setLocalSomethingSpecial(e.target.value)
+          }}
+          className='textArea'
+          value={localSomethingSpecial}
+          rows='3'
+          placeholder='i...'
+        />
+      </div>
     </>
   )
 }

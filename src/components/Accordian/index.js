@@ -43,6 +43,8 @@ const Accordian = ({ index, item }) => {
     ))
   }
 
+  console.log(item?.had_covid)
+
   return (
     <div className='accordian'>
       <div className='accordian__box'>
@@ -283,7 +285,7 @@ const Accordian = ({ index, item }) => {
                     checked={item?.had_covid ? false : true}
                     readOnly={true}
                     disabled={true}
-                    name='cheks3'
+                    name='cheks32'
                   />
                   <div>No</div>
                 </div>

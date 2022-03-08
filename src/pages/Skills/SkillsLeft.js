@@ -13,13 +13,14 @@ import useLocalStorage from 'use-local-storage'
 const SkillsLeft = () => {
   const [personalData, setPersonalData] = useContext(DataContext)
   const [data, setData] = useState([])
+  const [chosenSkill, setChosenSkill] = useState('HTML')
 
   const [localSkills, setLocalSkills] = useLocalStorage('skills', [])
   const [localYear, setLocalYear] = useLocalStorage('year', '')
-  const [localChosenSkill, setLocalChosenSkill] = useLocalStorage(
-    'skill',
-    'HTML',
-  )
+  // const [localChosenSkill, setLocalChosenSkill] = useLocalStorage(
+  //   'skill',
+  //   'HTML',
+  // )
 
   useEffect(() => {
     setPersonalData({
@@ -52,21 +53,21 @@ const SkillsLeft = () => {
   }, [response])
 
   //not to add duplicates to skills array
-  const duplicate = localSkills?.some((item) => item.title === localChosenSkill)
+  const duplicate = localSkills?.some((item) => item.title === chosenSkill)
 
   //extract ids from skills array
-  const skillId = data?.find((item) => item.title === localChosenSkill)?.id
+  const skillId = data?.find((item) => item.title === chosenSkill)?.id
 
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
-    if (localChosenSkill !== '' && !duplicate && localYear !== '') {
+    if (chosenSkill !== '' && !duplicate && localYear !== '') {
       setPersonalData({
         ...personalData,
         skills: [
           ...localSkills,
           {
             id: skillId,
-            experience: JSON.parse(localYear),
+            experience: Math.abs(JSON.parse(localYear)),
           },
         ],
       })
@@ -74,7 +75,7 @@ const SkillsLeft = () => {
         ...personalData.skills,
         {
           id: skillId,
-          experience: JSON.parse(localYear),
+          experience: Math.abs(JSON.parse(localYear)),
         },
       ])
     }
@@ -108,10 +109,7 @@ const SkillsLeft = () => {
   return (
     <div style={{ display: 'flex' }} className='skills__container'>
       <HeadText text='Tell us about your skills' className='page__heading' />
-      <Select
-        onChange={(e) => setLocalChosenSkill(e.target.value)}
-        data={data}
-      />
+      <Select onChange={(e) => setChosenSkill(e.target.value)} data={data} />
       <TextField
         onChange={(e) => setLocalYear(e.target.value)}
         className='textField skills__textField'
