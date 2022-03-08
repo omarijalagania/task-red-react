@@ -9,7 +9,7 @@ import Loader from '../Loader'
 const Accordian = ({ index, item }) => {
   const [active, setActive] = useState(false)
   const [skills, setSkills] = useState([])
-  const { response, error } = useAxios({
+  const { response } = useAxios({
     method: 'get',
     url: '/skills',
   })
@@ -23,7 +23,6 @@ const Accordian = ({ index, item }) => {
   const skillTitles = skills?.filter((skill1) =>
     item?.skills.some((skill2) => skill1.id === skill2.id),
   )
-  console.log(error)
 
   return (
     <div className='accordian'>
