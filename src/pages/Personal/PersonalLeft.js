@@ -58,7 +58,7 @@ const PersonalLeft = () => {
         width='280px'
       />
 
-      {user?.length < 2 ? (
+      {lastName?.length < 2 ? (
         <Errors message='Lastname Must be at least 2 symbols' />
       ) : (
         ''
