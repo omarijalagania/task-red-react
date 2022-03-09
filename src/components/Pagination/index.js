@@ -89,19 +89,25 @@ const Pagination = () => {
     },
   ]
 
-  //Move to next page
+  //navigation handlers
+
   const handleForwart = () => {
-    if (pageCount < pages.length - 1) {
-      pages[pageCount + 1].isValid && setPageCount(pageCount + 1)
-      pages[pageCount + 1].isValid && navigate(pages[pageCount + 1].path)
-    }
+    pages.map((page, index) => {
+      if (page.path === location.pathname) {
+        if (pages[index + 1].isValid) {
+          navigate(pages[index + 1].path)
+        }
+      }
+    })
   }
 
-  //Move to previous page
   const handleBack = () => {
-    if (pageCount > 0) {
-      setPageCount(pageCount - 1)
-      navigate(pages[pageCount - 1].path)
+    if (location.pathname === '/about') {
+      navigate('/covid')
+    } else if (location.pathname === '/covid') {
+      navigate('/skills')
+    } else if (location.pathname === '/skills') {
+      navigate('/personal')
     }
   }
 
