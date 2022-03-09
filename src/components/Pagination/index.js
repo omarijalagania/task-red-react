@@ -94,7 +94,6 @@ const Pagination = () => {
     if (pageCount < pages.length - 1) {
       pages[pageCount + 1].isValid && setPageCount(pageCount + 1)
       pages[pageCount + 1].isValid && navigate(pages[pageCount + 1].path)
-      console.log(pages[pageCount])
     }
   }
 

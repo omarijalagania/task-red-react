@@ -28,8 +28,6 @@ const PersonalLeft = () => {
     })
   }, [user, lastName, email, phone])
 
-  console.log(phone)
-
   return (
     <div
       style={{

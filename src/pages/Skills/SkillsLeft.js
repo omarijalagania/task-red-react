@@ -75,8 +75,6 @@ const SkillsLeft = () => {
   //extract ids from skills array
   const skillId = data?.find((item) => item.title === localChosenSkill)?.id
 
-  console.log(localSkills)
-
   //add skill to personalData.skills
   const addProgrammingLangHandler = (e) => {
     if (
